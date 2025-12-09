@@ -249,7 +249,7 @@ function WmsErpProjectPage() {
           className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 ${cardShadow}`}
         >
           <h4 className="text-sm font-semibold text-neutral-100 mb-2">
-            Aprendizajes clave
+            Aprendizajes claves
           </h4>
           <ul className="text-sm text-neutral-200 leading-relaxed list-disc list-outside pl-4 space-y-1">
             <li>
