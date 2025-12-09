@@ -104,6 +104,23 @@ function ProjectCard({
           </p>
         </div>
         <div className="pt-3">
+          {(() => {
+            const isInternal = linkUrl?.startsWith("/");
+            const anchorProps = isInternal
+              ? {}
+              : { target: "_blank", rel: "noreferrer" };
+
+            return (
+              <a
+                href={linkUrl}
+                {...anchorProps}
+                className="inline-flex items-center text-xs font-medium border border-neutral-600 px-3 py-1.5 rounded-sm hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+              >
+                {linkLabel}
+              </a>
+            );
+          })()}
+          {/* 
           <a
             href={linkUrl}
             target="_blank"
@@ -111,7 +128,7 @@ function ProjectCard({
             className="inline-flex items-center text-xs font-medium border border-neutral-600 px-3 py-1.5 rounded-sm hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
           >
             {linkLabel}
-          </a>
+          </a> */}
         </div>
       </div>
 
