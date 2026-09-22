@@ -1,86 +1,74 @@
-import { motion } from "framer-motion";
-import SectionTitle from "../ui/SectionTitle";
-
-const otherProjects = [
+import { FiArrowUpRight, FiCode, FiDatabase, FiTerminal } from "react-icons/fi";
+import SpotlightCard from "../kokonutui/SpotlightCard";
+import Reveal from "../ui/Reveal";
+const projects = [
   {
-    title: "Catálogo Web de Bodegas",
-    description:
-      "Página web catálogo para arriendo de bodegas, con tarjetas dinámicas, múltiples imágenes por propiedad y diseño listo para futura conexión a backend.",
-    technologies: ["React", "Vite", "TailwindCSS"],
+    title: "INVAS Monitor",
+    icon: FiDatabase,
+    category: "DATOS / OPERACIÓN",
+    text: "Consultas SQL, informes y dashboards para producción y bodega. Validación de consistencia y apoyo a la trazabilidad operacional.",
+    tags: "SQL · INVAS Monitor · Integraciones",
   },
   {
-    title: "Web Corporativa SurChile",
-    description:
-      "Página corporativa con información institucional, líneas de producto y enfoque en identidad de marca. Estructura modular para futura administración de contenido.",
-    link: "https://www.surchile.cl",
-    technologies: ["React", "Vite", "TailwindCSS"],
+    title: "ETL & herramientas Python",
+    icon: FiTerminal,
+    category: "AUTOMATIZACIÓN",
+    text: "Transformación, normalización y validación de CSV y Excel para cargas en Softland. Interfaces gráficas para análisis e informes internos.",
+    tags: "Python · Pandas · Tkinter · Excel",
   },
   {
-    title: "ETL para Softland (CSV → Carga)",
-    description:
-      "Script ETL que convierte datos desde planillas internas al formato requerido por Softland, automatizando cálculos y normalización de columnas.",
-    technologies: ["Python", "Pandas", "Excel"],
+    title: "Ecomlimp",
+    icon: FiCode,
+    category: "FRONTEND / E-COMMERCE",
+    text: "Catálogo responsive y carrito de compras implementado en el navegador para una empresa de productos de limpieza.",
+    tags: "React · JavaScript · Tailwind CSS",
+    href: "https://ecomlimp-demo.netlify.app",
   },
   {
-    title: "Herramientas Python para Excel (GUI)",
-    description:
-      "Aplicación Python con interfaz gráfica para generar análisis desde Excel, incorporando cálculos y visualización sin requerir conocimientos técnicos.",
-    technologies: ["Python", "Tkinter", "Excel", "Visualización"],
+    title: "Web corporativa SurChile",
+    icon: FiCode,
+    category: "WEB / IDENTIDAD",
+    text: "Sitio institucional con líneas de producto, información de empresa y una estructura de contenido modular.",
+    tags: "React · Vite · Tailwind CSS",
+    href: "https://www.surchile.cl",
   },
   {
-    title: "Soporte y herramientas para logística",
-    description:
-      "Desarrollo de herramientas internas en Python para automatizar informes, procesar datos y mejorar flujos administrativos integrados a logística.",
-    technologies: ["Python", "Excel", "Scripts internos"],
+    title: "Catálogo de bodegas",
+    icon: FiCode,
+    category: "WEB / CATÁLOGO",
+    text: "Catálogo de propiedades con tarjetas dinámicas, galerías y una interfaz adaptable a distintos dispositivos.",
+    tags: "React · Vite · Tailwind CSS",
   },
 ];
-
-function OtherProjectsSection() {
+export default function OtherProjectsSection() {
   return (
-    <motion.section
-      id="otros-proyectos"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
-      transition={{ duration: 0.4 }}
-      className="mt-12"
-    >
-      <SectionTitle title="Otros Proyectos" />
-
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {otherProjects.map((project) => (
-          <motion.article
-            key={project.title}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.35 }}
-            className="border border-neutral-800 rounded-lg bg-neutral-950/60 p-4 hover:-translate-y-1 hover:border-neutral-600/80 transition-all duration-200 hover:shadow-[0_0_25px_rgba(251,191,36,0.12)]"
-          >
-            <h3 className="text-sm font-semibold text-neutral-100">
-              {project.title}
-            </h3>
-            <p className="text-xs text-neutral-300 mt-1 leading-relaxed">
-              {project.description}{" "}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-amber-300 underline underline-offset-2 hover:text-amber-200"
-                >
-                  {project.link.replace("https://", "")}
-                </a>
-              )}
-            </p>
-            <p className="text-[11px] text-neutral-400 mt-2">
-              {project.technologies.join(" · ")}
-            </p>
-          </motion.article>
-        ))}
+    <section id="otros-proyectos" className="other-section">
+      <div className="other-heading">
+        <h2>Más proyectos, la misma curiosidad.</h2>
+        <span className="mono">EXPLORAR / CONSTRUIR / APRENDER</span>
       </div>
-    </motion.section>
+      <Reveal className="other-grid">
+        {projects.map(({ title, icon: Icon, category, text, tags, href }) => (
+          <SpotlightCard key={title}>
+            <div className="other-card-top">
+              <Icon aria-hidden="true" />
+              <span className="mono">{category}</span>
+            </div>
+            <h3>
+              {href ? (
+                <a href={href} target="_blank" rel="noreferrer">
+                  {title}
+                  <FiArrowUpRight aria-hidden="true" />
+                </a>
+              ) : (
+                title
+              )}
+            </h3>
+            <p>{text}</p>
+            <p className="small-muted">{tags}</p>
+          </SpotlightCard>
+        ))}
+      </Reveal>
+    </section>
   );
 }
-
-export default OtherProjectsSection;

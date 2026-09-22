@@ -1,379 +1,210 @@
-import { motion } from "framer-motion";
-import SectionTitle from "../components/ui/SectionTitle";
-
-function WmsErpProjectPage() {
-  const asIsImages = [
-    { src: "/Integracion/AsIs/Recepciones.drawio.png", label: "Recepciones · AS-IS" },
-    { src: "/Integracion/AsIs/Despachos.drawio.png", label: "Despachos · AS-IS" },
-    { src: "/Integracion/AsIs/PT.drawio.png", label: "Producto Terminado · AS-IS" },
-  ];
-
-  const toBeImages = [
-    { src: "/Integracion/ToBe/Recepcion-TOBE.drawio.png", label: "Recepciones · TO-BE" },
-    { src: "/Integracion/ToBe/Despachos-tobe.drawio.png", label: "Despachos · TO-BE" },
-    { src: "/Integracion/ToBe/Pt-TOBE.drawio.png", label: "Producto Terminado · TO-BE" },
-  ];
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0 },
-  };
-
-  const cardShadow =
-    "transition-shadow duration-200 hover:shadow-[0_0_25px_rgba(251,191,36,0.12)]";
-
+import CaseStudy from "../components/ui/CaseStudy";
+import ArchitectureDiagram from "../components/ui/ArchitectureDiagram";
+import Reveal from "../components/ui/Reveal";
+export default function WmsErpProjectPage() {
   return (
-    <motion.section
-      className="pt-10 pb-16"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <CaseStudy
+      number="02"
+      title="Softland ↔ INVAS"
+      intro="Ingeniería de integración para conectar ERP, WMS y operación industrial. Una arquitectura orientada a eventos sobre AWS, con reglas de negocio y trazabilidad documental."
+      tags={[
+        "AWS",
+        "Event-driven",
+        "Python",
+        "ERP / WMS",
+        "Sistemas distribuidos",
+      ]}
+      next={{ href: "/proyectos/plataforma-sc", title: "Plataforma SC" }}
     >
-      <SectionTitle title="Integración ERP ↔ WMS" />
-
-      {/* Resumen + Resultados */}
-      <div className="grid gap-6 md:grid-cols-2 mt-4">
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4 }}
-          className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 space-y-3 ${cardShadow}`}
-        >
-          <h3 className="text-sm font-semibold text-neutral-100">
-            Resumen del proyecto
-          </h3>
-          <p className="text-sm text-neutral-200 leading-relaxed">
-            Implementé un puente de integración entre el ERP (Softland) y el WMS
-            (Invas) para automatizar el envío y recepción de órdenes de compra,
-            notas de venta, órdenes de trabajo y movimientos de stock. La
-            integración interpreta documentos en XML, los transforma a JSON,
-            aplica lógica de negocio y sincroniza la información entre ambos
-            sistemas, evitando la doble digitación y manteniendo los datos
-            alineados en todo el flujo operativo.
+      <Reveal className="case-overview">
+        <div>
+          <p className="eyebrow">EL DESAFÍO</p>
+          <h2>Dos sistemas que necesitaban hablar el mismo idioma.</h2>
+          <p>
+            Softland e INVAS operaban con formatos y reglas diferentes. La
+            integración traduce XML y JSON, valida documentos y automatiza
+            órdenes, recepciones, guías, declaraciones de producto terminado y
+            consumos de materia prima.
           </p>
-          <p className="text-sm text-neutral-200 leading-relaxed">
-            El foco del proyecto fue conectar dos plataformas que no se integran
-            de forma nativa, diseñando una capa intermedia que entiende cómo
-            funciona la operación en planta y traduce ese flujo al lenguaje de
-            cada sistema, manteniendo trazabilidad y control sobre cada
-            transacción.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 space-y-3 ${cardShadow}`}
-        >
-          <h3 className="text-sm font-semibold text-neutral-100">
-            Resultados y métricas
-          </h3>
-          <ul className="text-sm text-neutral-200 leading-relaxed list-disc list-outside pl-4 space-y-1">
-            <li>
-              Eliminación de la doble digitación entre ERP y WMS en órdenes de
-              compra, notas de venta y movimientos de stock.
-            </li>
-            <li>
-              Reducción del tiempo de registro de información operativa al
-              automatizar la carga y validación de documentos.
-            </li>
-            <li>
-              Mayor trazabilidad sobre el estado de cada integración gracias a
-              logs estructurados y validaciones por documento.
-            </li>
-            <li>
-              Menor riesgo de errores humanos en procesos críticos de bodega y
-              producción.
-            </li>
-          </ul>
-          <p className="text-xs text-neutral-400">
-            Nota: los valores exactos de ahorro de tiempo y costos se pueden
-            documentar internamente; aquí se presenta el impacto de forma
-            cualitativa para el portafolio.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Tecnologías + Flujo */}
-      <div className="grid gap-6 md:grid-cols-2 mt-6">
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4 }}
-          className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 ${cardShadow}`}
-        >
-          <h4 className="text-sm font-semibold text-neutral-100 mb-2">
-            Tecnologías y arquitectura
-          </h4>
-          <p className="text-sm text-neutral-200 leading-relaxed mb-3">
-            La integración se implementó como un servicio desacoplado entre ERP
-            y WMS, combinando backend en Python con servicios cloud y una base
-            de datos para trazabilidad.
-          </p>
-          <ul className="text-sm text-neutral-200 leading-relaxed list-disc list-outside pl-4 space-y-1 mb-3">
-            <li>Servicio backend de integración desarrollado con FastAPI.</li>
-            <li>
-              Procesamiento de documentos en formato XML y transformación a JSON.
-            </li>
-            <li>
-              Uso de servicios en la nube para orquestar la integración
-              (AWS: Lambda, SNS, S3, EC2 según el flujo).
-            </li>
-            <li>
-              Almacenamiento de estados y logs de integración en MongoDB Atlas.
-            </li>
-            <li>
-              Consumo de APIs del WMS para registrar y actualizar información
-              operativa.
-            </li>
-          </ul>
-          <div className="flex flex-wrap gap-2 text-xs text-neutral-100">
-            {[
-              "FastAPI",
-              "Python",
-              "MongoDB Atlas",
-              "AWS",
-              "Lambda",
-              "SNS",
-              "S3",
-              "EC2",
-              "XML",
-              "JSON",
-              "Softland ERP",
-              "Invas WMS",
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 rounded-full border border-neutral-700 bg-neutral-900/70"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 ${cardShadow}`}
-        >
-          <h4 className="text-sm font-semibold text-neutral-100 mb-2">
-            Pasos y flujo de integración
-          </h4>
-          <p className="text-sm text-neutral-200 leading-relaxed mb-3">
-            A alto nivel, el flujo sigue una secuencia clara desde el ERP hasta
-            el WMS (y en algunos casos en sentido inverso), aplicando
-            validaciones y controles en cada etapa:
-          </p>
-          <ul className="text-sm text-neutral-200 leading-relaxed list-disc list-outside pl-4 space-y-1">
-            <li>
-              El ERP genera documentos (OC, NV, OT, movimientos) en formato XML.
-            </li>
-            <li>
-              El servicio de integración recibe el XML, lo valida y lo transforma
-              a una estructura JSON estándar.
-            </li>
-            <li>
-              Se aplica lógica de negocio para completar campos, mapear códigos y
-              preparar el payload para el WMS.
-            </li>
-            <li>
-              El sistema llama a las APIs del WMS y registra el resultado de cada
-              operación.
-            </li>
-            <li>
-              Se manejan errores, reintentos y casos especiales para evitar
-              duplicidad o pérdida de información.
-            </li>
-            <li>
-              Los estados y eventos relevantes se guardan para trazabilidad y
-              auditoría futura.
-            </li>
-          </ul>
-        </motion.div>
-      </div>
-
-      {/* Mi rol */}
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4 }}
-          className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 ${cardShadow}`}
-        >
-          <h4 className="text-sm font-semibold text-neutral-100 mb-2">
-            Mi rol en el proyecto
-          </h4>
-          <ul className="text-sm text-neutral-200 leading-relaxed list-disc list-outside pl-4 space-y-1">
-            <li>
-              Levantamiento del proceso junto a jefatura de planta y revisión de
-              cómo se operaba en ERP y WMS.
-            </li>
-            <li>
-              Diseño del flujo de integración y definición de los documentos a
-              sincronizar entre sistemas.
-            </li>
-            <li>
-              Implementación de la lógica de transformación XML ↔ JSON y
-              validaciones clave.
-            </li>
-            <li>
-              Configuración de la arquitectura cloud para soportar la
-              integración.
-            </li>
-            <li>
-              Pruebas con datos reales y ajuste fino según el feedback de
-              operación.
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className={`border border-neutral-800 rounded-lg p-6 bg-neutral-950/60 ${cardShadow}`}
-        >
-          <h4 className="text-sm font-semibold text-neutral-100 mb-2">
-            Aprendizajes claves
-          </h4>
-          <ul className="text-sm text-neutral-200 leading-relaxed list-disc list-outside pl-4 space-y-1">
-            <li>
-              La importancia de entender el proceso completo antes de diseñar la
-              integración.
-            </li>
-            <li>
-              Cómo manejar sistemas con documentación limitada y logs poco
-              amigables.
-            </li>
-            <li>
-              El valor de una capa intermedia que abstrae la lógica de negocio y
-              desacopla los sistemas.
-            </li>
-            <li>
-              La necesidad de trazabilidad clara para soporte y evolución futura
-              de la solución.
-            </li>
-          </ul>
-        </motion.div>
-      </div>
-
-      {/* Diagramas / BPMN / Imágenes */}
-      <div className="mt-8 space-y-4">
-        <h3 className="text-sm font-semibold text-neutral-100">
-          Diagramas del proceso y arquitectura
-        </h3>
-        <p className="text-sm text-neutral-200 leading-relaxed max-w-3xl">
-          A continuación se muestran diagramas de alto nivel del proceso AS-IS y
-          TO-BE, además de la arquitectura de integración. Los BPMN y esquemas
-          se presentan con datos genéricos para proteger la información
-          interna, pero reflejan el flujo real modelado para la planta.
-        </p>
-
-        <div className="grid gap-6 md:grid-cols-2 mt-2">
-          <motion.div
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
-            className={`border border-neutral-800 rounded-xl bg-neutral-950/70 p-4 flex flex-col gap-3 ${cardShadow}`}
-          >
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-              BPMN · AS-IS
-            </span>
-            <p className="text-xs text-neutral-300">
-              Proceso original con doble digitación en ERP y WMS, uso de
-              planillas y poca trazabilidad.
-            </p>
-            <div className="space-y-3">
-              {asIsImages.map(({ src, label }) => (
-                <div
-                  key={src}
-                  className="rounded-lg overflow-hidden border border-neutral-800/80 bg-neutral-900/60"
-                >
-                  <img
-                    src={src}
-                    alt={label}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className={`border border-neutral-800 rounded-xl bg-neutral-950/70 p-4 flex flex-col gap-3 ${cardShadow}`}
-          >
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-              BPMN · TO-BE
-            </span>
-            <p className="text-xs text-neutral-300">
-              Proceso optimizado con la capa de integración automatizando el
-              intercambio de información entre ERP y WMS.
-            </p>
-            <div className="space-y-3">
-              {toBeImages.map(({ src, label }) => (
-                <div
-                  key={src}
-                  className="rounded-lg overflow-hidden border border-neutral-800/80 bg-neutral-900/60"
-                >
-                  <img
-                    src={src}
-                    alt={label}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
-
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className={`mt-4 border border-neutral-800 rounded-xl bg-neutral-950/70 p-4 flex flex-col gap-3 ${cardShadow}`}
-        >
-          <span className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-            Arquitectura · Evidencias
-          </span>
-          <p className="text-xs text-neutral-300 max-w-3xl">
-            Arquitectura de alto nivel del funcionamiento de la integración de
-            Invas - Softland.
+        <aside className="case-result">
+          <span className="mono">ESTADO DEL PROYECTO</span>
+          <strong>Integración productiva</strong>
+          <p>
+            Con evolución continua en confiabilidad, monitoreo y recuperación.
+            Persistencia E2E sobre DynamoDB en validación.
           </p>
-          <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden border border-neutral-800/80 bg-gradient-to-b from-neutral-900/60 to-neutral-950/90">
-            <img
-              src="/Integracion/Infra/Arquitectura.drawio.png"
-              alt="Arquitectura de la integración ERP-WMS"
-              className="w-full h-full object-contain"
-            />
+        </aside>
+      </Reveal>
+      <section className="case-section">
+        <p className="eyebrow">ARQUITECTURA CLOUD</p>
+        <h2>Desacoplar sistemas. Conectar procesos.</h2>
+        <div className="case-two-col">
+          <ArchitectureDiagram />
+          <div>
+            <h3>Una capa de integración orientada a eventos</h3>
+            <p>
+              API Gateway recibe solicitudes, Lambda ejecuta transformaciones y
+              reglas de negocio, SNS distribuye eventos y S3 sirve como
+              intercambio y buffer documental. IAM controla el acceso a
+              servicios y CloudWatch centraliza señales operacionales.
+            </p>
+            <p>
+              La integración combina componentes serverless con infraestructura
+              local y ambientes QA/PROD. DynamoDB añade una capa de correlación
+              y persistencia en evolución.
+            </p>
+            <div className="tags">
+              {[
+                "API Gateway",
+                "Lambda",
+                "SNS",
+                "S3",
+                "CloudWatch",
+                "IAM",
+                "DynamoDB",
+              ].map((x) => (
+                <span key={x}>{x}</span>
+              ))}
+            </div>
           </div>
-        </motion.div>
-      </div>
-    </motion.section>
+        </div>
+      </section>
+      <section className="case-section">
+        <p className="eyebrow">FLUJOS DE NEGOCIO</p>
+        <h2>Información que viaja en ambos sentidos.</h2>
+        <div className="case-two-col flow-panels">
+          <article>
+            <span className="mono accent">SOFTLAND → INVAS</span>
+            <h3>De la planificación a la ejecución</h3>
+            <p>
+              Órdenes de compra, notas de venta y documentos operacionales
+              requeridos por el WMS. Transformación y validación antes de
+              invocar sus APIs.
+            </p>
+          </article>
+          <article>
+            <span className="mono accent">INVAS → SOFTLAND</span>
+            <h3>De la operación al registro</h3>
+            <p>
+              ASN y recepciones, guías de entrada y salida, declaración de
+              producto terminado y consumo de materia prima. Procesamiento de
+              respuestas y trazabilidad documental.
+            </p>
+          </article>
+        </div>
+        <div className="process-comparison">
+          <div>
+            <span className="eyebrow">AS-IS</span>
+            <p>
+              Documento → digitación manual → registro en otro sistema →
+              revisión manual
+            </p>
+          </div>
+          <div>
+            <span className="eyebrow">TO-BE</span>
+            <p>
+              Documento → transformación y validación → integración →
+              seguimiento de respuesta
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="case-section">
+        <p className="eyebrow">CONFIABILIDAD</p>
+        <h2>El flujo real incluye errores y reintentos.</h2>
+        <div className="case-feature-grid">
+          <article>
+            <h3>Integridad transaccional</h3>
+            <p>
+              Validaciones de negocio, identificación de documentos y controles
+              de reprocesamiento para reducir duplicados e inconsistencias. La
+              correlación permite seguir una operación y entender su estado.
+            </p>
+          </article>
+          <article>
+            <h3>Observabilidad E2E</h3>
+            <p>
+              CloudWatch reúne métricas de latencia, volumen, éxito/fallo,
+              reintentos y errores. El seguimiento desde emisión hasta respuesta
+              facilita el diagnóstico y la continuidad operacional.
+            </p>
+          </article>
+          <article>
+            <h3>Diagnóstico y recuperación</h3>
+            <p>
+              Los documentos rechazados y archivos bloqueantes requieren
+              identificar el origen, aislar el problema y recuperar el
+              procesamiento de forma controlada.
+            </p>
+          </article>
+          <article>
+            <span className="state-badge">En validación / evolución</span>
+            <h3>Persistencia E2E · DynamoDB</h3>
+            <p>
+              Diseño de correlación de confirmaciones con PK/SK, GSI, escrituras
+              condicionales y control de concurrencia. Busca fortalecer
+              idempotencia y recuperación de pendientes; no se presenta como
+              ciclo cerrado en producción.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section className="case-section">
+        <p className="eyebrow">DECISIONES & TRADE-OFFS</p>
+        <h2>La arquitectura responde al contexto.</h2>
+        <div className="decision-list">
+          <article>
+            <h3>S3 como buffer documental</h3>
+            <p>
+              Permite mantener el intercambio de archivos de la etapa actual. El
+              aislamiento automático de fallos con SQS y DLQ se considera una
+              evolución, evaluando volumen y complejidad operacional.
+            </p>
+          </article>
+          <article>
+            <h3>DynamoDB para correlación</h3>
+            <p>
+              Un modelo serverless con escrituras condicionales permite diseñar
+              estados persistentes y controles de concurrencia sin agregar una
+              base relacional a este flujo.
+            </p>
+          </article>
+          <article>
+            <h3>Medir antes de ampliar</h3>
+            <p>
+              La observabilidad ayuda a decidir qué mejorar con evidencia. La
+              integración incorpora monitoreo y diagnóstico sin publicar
+              porcentajes de éxito ni latencias que no cuenten con una base
+              verificable.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section className="case-section case-two-col">
+        <div>
+          <p className="eyebrow">MI CONTRIBUCIÓN</p>
+          <h2>Del levantamiento al soporte productivo.</h2>
+          <p>
+            Modelado de procesos AS-IS y TO-BE, diseño de arquitectura AWS,
+            transformación XML/JSON, validaciones, instrumentación y
+            diagnóstico. Coordinación con planta, gerencia y proveedores para
+            ajustar la solución a la operación real.
+          </p>
+        </div>
+        <div className="thesis-note">
+          <span className="mono accent">
+            INGENIERÍA CIVIL EN COMPUTACIÓN / UTEM
+          </span>
+          <h3>Trabajo de título</h3>
+          <p>
+            La integración y digitalización ERP/WMS son el eje del trabajo de
+            título, con análisis de procesos, arquitectura cloud e impacto
+            operacional.
+          </p>
+          <span className="state-badge">Egresado · Defensa en proceso</span>
+        </div>
+      </section>
+    </CaseStudy>
   );
 }
-
-export default WmsErpProjectPage;

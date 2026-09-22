@@ -1,82 +1,90 @@
-import { FiDownload } from "react-icons/fi";
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-
-const navItems = [
-  { label: "Presentación", href: "#presentacion" },
-  { label: "Sobre mí", href: "#sobre-mi" },
-  { label: "Cursos", href: "#cursos" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Experiencia", href: "#experiencia" },
+import { useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FiArrowDown, FiMenu, FiX } from "react-icons/fi";
+import { profile } from "../data/profile";
+const items = [
+  ["Inicio", "presentacion"],
+  ["Impacto", "impacto"],
+  ["Stack", "stack"],
+  ["Proyectos", "proyectos"],
+  ["Experiencia", "experiencia"],
+  ["Formación", "cursos"],
+  ["Contacto", "contacto"],
 ];
-
-function Navbar() {
-  const navigate = useNavigate();
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
   const location = useLocation();
-
-  const scrollToId = (hash: string) => {
-    const id = hash.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  useEffect(() => {
-    const targetHash = (location.state as { scrollTo?: string } | null)?.scrollTo;
-    if (targetHash) {
-      // Espera un frame para asegurar que la vista principal está montada.
-      requestAnimationFrame(() => scrollToId(targetHash));
-      navigate(location.pathname, { replace: true, state: {} });
-    }
-  }, [location.pathname, location.state, navigate]);
-
-  const handleNavClick = (href: string) => {
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: href } });
-      return;
-    }
-    scrollToId(href);
-  };
-
   return (
-    <header className="sticky top-0 z-20 border-b border-neutral-800 bg-neutral-950/90 backdrop-blur">
-      <nav className="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-2">
-          <img
-            src="/logo.png"
-            alt="MaxOlaDev logo"
-            className="h-11 w-11 rounded-full object-cover"
-          />
-          <span className="text-sm tracking-[0.25em] uppercase text-neutral-400">
-            MaxOlaDev
+    <header
+      className="site-header"
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && open) {
+          setOpen(false);
+          toggle.current?.focus();
+        }
+      }}
+    >
+      <nav className="nav-shell" aria-label="Navegación principal">
+        <Link
+          to="/#presentacion"
+          className="brand"
+          onClick={() => setOpen(false)}
+        >
+          <span className="brand-symbol" aria-hidden="true">
+            m<span>.</span>
           </span>
-        </div>
-
-        <div className="flex items-center gap-3 text-xs sm:text-sm">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              type="button"
-              onClick={() => handleNavClick(item.href)}
-              className="border border-neutral-600/70 px-3 py-1.5 hover:bg-neutral-100 hover:text-neutral-900 transition-colors rounded-sm"
+          <span>
+            moladev
+            <span className="accent" aria-hidden="true">
+              /
+            </span>
+          </span>
+        </Link>
+        <div className="desktop-nav">
+          {items.map(([label, id]) => (
+            <Link
+              key={id}
+              to={`/#${id}`}
+              aria-current={
+                location.pathname === "/" && location.hash === `#${id}`
+                  ? "location"
+                  : undefined
+              }
             >
-              {item.label}
-            </button>
+              {label}
+            </Link>
           ))}
-
+        </div>
+        <div className="nav-actions">
           <a
-            href="/Maximiliano%20Olave%20CV.pdf"
-            download="Maximiliano Olave CV.pdf"
-            className="hidden sm:inline-flex items-center gap-2 border border-neutral-600/70 px-3 py-1.5 rounded-sm hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+            className="button nav-cv"
+            href={profile.cv}
+            download={profile.cvFilename}
           >
-            <span>Descargar CV</span>
-            <FiDownload className="text-base" />
+            CV <FiArrowDown aria-hidden="true" />
           </a>
+          <button
+            type="button"
+            ref={toggle}
+            className="icon-button menu-toggle"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
+        <div className="mobile-nav" id="mobile-navigation" hidden={!open}>
+          {items.map(([label, id]) => (
+            <Link key={id} to={`/#${id}`} onClick={() => setOpen(false)}>
+              {label}
+              <FiArrowDown aria-hidden="true" />
+            </Link>
+          ))}
         </div>
       </nav>
     </header>
   );
 }
-
-export default Navbar;

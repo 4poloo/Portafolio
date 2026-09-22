@@ -1,50 +1,81 @@
 import SectionTitle from "../ui/SectionTitle";
-import ExperienceItem from "../ui/ExperienceItem";
-
+import Reveal from "../ui/Reveal";
 const experiences = [
   {
-    role: "Integrador de sistemas ERP/WMS · Desarrollador Full-Stack",
-    company: "SurChile SPA, Lampa",
-    period: "12/2024 - 12/2025",
-    description:
-      "Desarrollo e integración estratégica entre ERP Softland y WMS Invas, digitalizando procesos críticos de planta. Creación de plataforma interna modular (React + FastAPI + MongoDB + Docker), dashboards de KPI para gerencia, app web para carga de .csv y página corporativa Surchile.cl.",
+    company: "SurChile SPA",
+    role: "Líder de Tecnología e Innovación",
+    subrole: "Full Stack / Cloud Developer",
+    period: "DIC 2024 — ACTUALIDAD",
+    current: true,
+    text: "Lidero la evolución tecnológica de la operación y participo directamente en arquitectura y desarrollo. Trabajo con gerencia, usuarios y proveedores para convertir necesidades de negocio en sistemas productivos.",
+    details: [
+      "Diseño y operación de la integración Softland ERP ↔ INVAS WMS con API Gateway, Lambda, SNS, S3, DynamoDB, CloudWatch e IAM; persistencia E2E en evolución.",
+      "Desarrollo de Plataforma SC con React, TypeScript, FastAPI y MongoDB; planificación, OT, devoluciones, recepciones, dashboards y ticketing TI.",
+      "Pipelines con GitHub Actions, ambientes QA/PROD y operación con Docker, Nginx y Ubuntu; conectividad híbrida mediante WireGuard.",
+      "Observabilidad, diagnóstico de incidentes, consultas SQL y reducción de deuda técnica con SonarQube.",
+    ],
   },
   {
-    role: "Soporte TI · Desarrollador e implementador de herramientas TI",
-    company: "Logistica Lerol, Santiago",
-    period: "10/2023 - 06/2024",
-    description:
-      "Soporte TI integral (hardware, impresoras, etiquetadoras, redes y AP). Desarrollo de herramientas en Python para análisis de datos en Excel con interfaz gráfica, automatización de informes, instalación y mantención de cámaras de seguridad y mitigación de incidente de ciberseguridad en red y correos.",
+    company: "Logística Lerol",
+    role: "Soporte TI & desarrollo de herramientas",
+    subrole: "Infraestructura y automatización",
+    period: "OCT 2023 — JUN 2024",
+    text: "Soporte de redes, hardware, impresoras y etiquetadoras. Desarrollé herramientas Python con interfaces gráficas para analizar datos y automatizar informes Excel; participé en respuesta a incidentes de ciberseguridad.",
   },
   {
-    role: "Desarrollador de Software · Técnico Hardware",
-    company: "SoaSystem SPA, Santiago",
-    period: "06/2021 - 07/2023",
-    description:
-      "Reparación y configuración de equipos (hardware y software), instalación de sistemas de circuito cerrado y desarrollo de página web con base de datos MySQL y lógica en HTML, PHP y Java.",
+    company: "SoaSystem SPA",
+    role: "Desarrollo de software & soporte técnico",
+    subrole: "Web, datos y hardware",
+    period: "JUN 2021 — JUL 2023",
+    text: "Desarrollo y mantención de soluciones web con HTML, PHP, Java y MySQL. Soporte de hardware, sistemas operativos y CCTV.",
   },
   {
-    role: "Desarrollador Full-Stack Independiente (Freelance)",
-    company: "Proyectos independientes",
-    period: "2020 - Actualidad",
-    description:
-      "Diseño e implementación de soluciones a medida para pequeños negocios y clientes particulares, incluyendo desarrollo de aplicaciones web end-to-end, prototipos tipo plataforma de movilidad, sitios web administrables, y herramientas de análisis para uso interno. Levantamiento de requerimientos, arquitectura del proyecto, desarrollo Front y Back, despliegue y soporte técnico.",
+    company: "Independiente",
+    role: "Desarrollador freelance",
+    subrole: "Soluciones a medida",
+    period: "PROYECTOS POR ENCARGO",
+    text: "Aplicaciones web y móviles con React, TypeScript, SQLite, Django y MySQL. Integraciones con Google Maps, WhatsApp y EmailJS, además de clases de programación.",
   },
 ];
-
-function ExperienceSection() {
+export default function ExperienceSection() {
   return (
-    <section id="experiencia">
-      <SectionTitle title="Experiencia" />
-      <div className="mt-2 border border-neutral-800 rounded-lg p-6 bg-neutral-950/60">
-        <ol className="relative border-l border-neutral-800 ml-1">
+    <section id="experiencia" className="section">
+      <SectionTitle
+        eyebrow="05 / EXPERIENCIA"
+        title="Construir. Aprender. Asumir nuevos desafíos."
+      />
+      <Reveal>
+        <ol className="timeline">
           {experiences.map((exp) => (
-            <ExperienceItem key={exp.role + exp.company} {...exp} />
+            <li key={exp.company} className={exp.current ? "current-role" : ""}>
+              <div className="experience-meta">
+                <span className="mono">{exp.period}</span>
+                <h3>{exp.company}</h3>
+                {exp.current && (
+                  <span className="current-tag">
+                    <span className="status-dot" /> Actualmente
+                  </span>
+                )}
+              </div>
+              <div className="experience-copy">
+                <h4>{exp.role}</h4>
+                <span className="small-muted">{exp.subrole}</span>
+                <p>{exp.text}</p>
+                {exp.details && (
+                  <details>
+                    <summary>Responsabilidades y alcance</summary>
+                    <ul>
+                      {exp.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+              </div>
+            </li>
           ))}
         </ol>
-      </div>
+      </Reveal>
     </section>
   );
 }
-
-export default ExperienceSection;

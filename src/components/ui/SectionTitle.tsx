@@ -1,16 +1,18 @@
 interface SectionTitleProps {
-  id?: string;
   title: string;
+  eyebrow?: string;
+  description?: string;
 }
-
-function SectionTitle({ id, title }: SectionTitleProps) {
+export default function SectionTitle({
+  title,
+  eyebrow,
+  description,
+}: SectionTitleProps) {
   return (
-    <div id={id} className="w-full border-t border-neutral-800 pt-10 mt-10">
-      <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-6">
-        {title}
-      </h2>
+    <div className="section-heading">
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <h2>{title}</h2>
+      {description && <p className="section-description">{description}</p>}
     </div>
   );
 }
-
-export default SectionTitle;

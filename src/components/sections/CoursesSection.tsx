@@ -1,99 +1,56 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { FiAward, FiArrowUpRight, FiBookOpen } from "react-icons/fi";
 import SectionTitle from "../ui/SectionTitle";
-
-interface CourseItem {
-  title: string;
-  provider: string;
-  year: string;
-  imageUrl?: string;
-}
-
-const courses: CourseItem[] = [
-  {
-    title: "Máster en DevSecOps",
-    provider: "Lite Thinking",
-    year: "2025",
-    imageUrl: "/Cursos/3230.png",
-  },
-];
-
-function CoursesSection() {
-  const [previewSrc, setPreviewSrc] = useState<string | null>(null);
-
+import ImagePreview from "../ui/ImagePreview";
+import Reveal from "../ui/Reveal";
+export default function CoursesSection() {
+  const [preview, setPreview] = useState(false);
   return (
-    <motion.section
-      id="cursos"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
-      transition={{ duration: 0.5 }}
-    >
-      <SectionTitle title="Cursos & Títulos" />
-
-      <div className="grid gap-6 md:grid-cols-3 mt-2">
-        {courses.map((course) => (
-          <article
-            key={course.title}
-            className="border border-neutral-800 rounded-lg bg-neutral-950/60 overflow-hidden transition-shadow duration-200 hover:shadow-[0_0_25px_rgba(251,191,36,0.12)]"
+    <section id="cursos" className="section">
+      <SectionTitle
+        eyebrow="06 / FORMACIÓN"
+        title="Una base sólida. Aprendizaje continuo."
+      />
+      <Reveal className="education-grid">
+        <article className="education-card">
+          <FiBookOpen className="card-icon" aria-hidden="true" />
+          <p className="eyebrow">UNIVERSIDAD TECNOLÓGICA METROPOLITANA</p>
+          <h3>Ingeniería Civil en Computación</h3>
+          <p>Mención Informática · UTEM</p>
+          <span className="state-badge">
+            Egresado · Trabajo de título / defensa en proceso
+          </span>
+          <p className="small-muted">
+            Trabajo de título: integración y digitalización de procesos Softland
+            ERP ↔ INVAS WMS, arquitectura cloud y evolución de plataforma
+            operacional.
+          </p>
+        </article>
+        <article className="education-card">
+          <FiAward className="card-icon" aria-hidden="true" />
+          <p className="eyebrow">LTS · LITE THINKING / 2025</p>
+          <h3>Curso certificado “Máster en DevSecOps”</h3>
+          <p>
+            SonarQube, Jenkins, Docker, GitHub Actions, CI/CD y prácticas
+            DevSecOps.
+          </p>
+          <button
+            type="button"
+            className="text-button"
+            onClick={() => setPreview(true)}
           >
-            <div className="h-48 bg-neutral-900 border-b border-neutral-800 flex items-center justify-center">
-              {course.imageUrl ? (
-                <button
-                  type="button"
-                  onClick={() => setPreviewSrc(course.imageUrl ?? null)}
-                  className="h-full w-full"
-                >
-                  <img
-                    src={course.imageUrl}
-                    alt={course.title}
-                    className="h-full w-full object-cover"
-                  />
-                </button>
-              ) : (
-                <div className="text-xs text-neutral-500 text-center px-4">
-                  Sube aquí la imagen/insignia del curso
-                </div>
-              )}
-            </div>
-            <div className="p-4 space-y-1">
-              <h3 className="text-sm font-semibold">{course.title}</h3>
-              <p className="text-xs uppercase tracking-[0.15em] text-neutral-500">
-                {course.provider}
-              </p>
-              <p className="text-xs text-neutral-400">Año: {course.year}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {previewSrc && (
-        <div
-          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setPreviewSrc(null)}
-        >
-          <div
-            className="max-w-4xl w-full max-h-[90vh] overflow-hidden rounded-lg border border-neutral-700 bg-neutral-950"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={previewSrc}
-              alt="Certificado"
-              className="w-full h-full object-contain"
-            />
-            <button
-              type="button"
-              onClick={() => setPreviewSrc(null)}
-              className="absolute top-6 right-6 h-9 w-9 rounded-full bg-neutral-900/80 border border-neutral-700 text-neutral-200 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
-              aria-label="Cerrar"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
+            Ver certificado <FiArrowUpRight aria-hidden="true" />
+          </button>
+        </article>
+      </Reveal>
+      <p className="section-footnote">Español nativo · Inglés intermedio</p>
+      {preview && (
+        <ImagePreview
+          src="/Cursos/3230.png"
+          title="Certificado del curso Máster en DevSecOps"
+          onClose={() => setPreview(false)}
+        />
       )}
-    </motion.section>
+    </section>
   );
 }
-
-export default CoursesSection;

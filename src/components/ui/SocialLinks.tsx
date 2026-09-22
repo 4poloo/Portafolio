@@ -1,37 +1,17 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FiFileText } from "react-icons/fi";
-
-interface SocialLinksProps {
-  linkedinUrl?: string;
-  githubUrl?: string;
-  cvUrl?: string;
-}
-
-function SocialLinks({
-  linkedinUrl = "https://www.linkedin.com/in/maximiliano-olave-bastidas-450960351/",
-  githubUrl = "https://github.com/4poloo",
-  cvUrl = "/Maximiliano%20Olave%20CV.pdf",
-}: SocialLinksProps) {
-  const iconBase =
-    "h-9 w-9 flex items-center justify-center rounded-full bg-neutral-900 border border-neutral-700 hover:border-neutral-400 hover:-translate-y-0.5 transition-all";
-
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FiArrowUpRight } from "react-icons/fi";
+import { profile } from "../../data/profile";
+export default function SocialLinks() {
   return (
-    <div className="flex items-center gap-4 mt-4">
-      <a href={linkedinUrl} target="_blank" rel="noreferrer" className={iconBase}>
-        <FaLinkedin className="text-xl text-sky-500" />
+    <div className="social-links">
+      <a href={profile.github} target="_blank" rel="noreferrer">
+        <FaGithub aria-hidden="true" /> GitHub{" "}
+        <FiArrowUpRight aria-hidden="true" />
       </a>
-      <a href={githubUrl} target="_blank" rel="noreferrer" className={iconBase}>
-        <FaGithub className="text-xl" />
-      </a>
-      <a
-        href={cvUrl}
-        download="Maximiliano Olave CV.pdf"
-        className={iconBase}
-      >
-        <FiFileText className="text-xl" />
+      <a href={profile.linkedin} target="_blank" rel="noreferrer">
+        <FaLinkedinIn aria-hidden="true" /> LinkedIn{" "}
+        <FiArrowUpRight aria-hidden="true" />
       </a>
     </div>
   );
 }
-
-export default SocialLinks;
