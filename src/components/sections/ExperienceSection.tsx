@@ -17,22 +17,22 @@ const experiences = [
   },
   {
     company: "Logística Lerol",
-    role: "Soporte TI & desarrollo de herramientas",
-    subrole: "Infraestructura y automatización",
+    role: "Soporte TI & Desarrollo de herramientas",
+    subrole: "Infraestructura · Redes · Automatización",
     period: "OCT 2023 — JUN 2024",
     text: "Soporte de redes, hardware, impresoras y etiquetadoras. Desarrollé herramientas Python con interfaces gráficas para analizar datos y automatizar informes Excel; participé en respuesta a incidentes de ciberseguridad.",
   },
   {
     company: "SoaSystem SPA",
     role: "Desarrollo de software & soporte técnico",
-    subrole: "Web, datos y hardware",
+    subrole: "Web · Datos · Infraestructura",
     period: "JUN 2021 — JUL 2023",
     text: "Desarrollo y mantención de soluciones web con HTML, PHP, Java y MySQL. Soporte de hardware, sistemas operativos y CCTV.",
   },
   {
     company: "Independiente",
-    role: "Desarrollador freelance",
-    subrole: "Soluciones a medida",
+    role: "Desarrollador Full Stack Freelance",
+    subrole: "Aplicaciones y soluciones a medida",
     period: "PROYECTOS POR ENCARGO",
     text: "Aplicaciones web y móviles con React, TypeScript, SQLite, Django y MySQL. Integraciones con Google Maps, WhatsApp y EmailJS, además de clases de programación.",
   },
@@ -41,8 +41,9 @@ export default function ExperienceSection() {
   return (
     <section id="experiencia" className="section">
       <SectionTitle
-        eyebrow="05 / EXPERIENCIA"
-        title="Construir. Aprender. Asumir nuevos desafíos."
+        eyebrow="04 / EXPERIENCIA"
+        title="Experiencia profesional"
+        description="Desarrollo de software, integración de sistemas, cloud e infraestructura aplicada a operaciones reales."
       />
       <Reveal>
         <ol className="timeline">

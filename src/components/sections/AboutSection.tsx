@@ -5,8 +5,9 @@ export default function AboutSection() {
     <section id="sobre-mi" className="section about-section">
       <Reveal className="about-grid">
         <SectionTitle
-          eyebrow="01 / SOBRE MÍ"
-          title="Entender el negocio. Construir la solución."
+          eyebrow="05 / PERFIL"
+          title="Perfil profesional"
+          description="Ingeniería de software aplicada a procesos, sistemas y operación."
         />
         <div className="about-copy">
           <p>
@@ -31,9 +32,21 @@ export default function AboutSection() {
       </Reveal>
       <Reveal className="process-row">
         {[
-          ["01", "Entender", "Procesos, usuarios y restricciones."],
-          ["02", "Diseñar y construir", "Arquitectura, APIs y producto."],
-          ["03", "Operar y mejorar", "CI/CD, observabilidad y evolución."],
+          [
+            "01",
+            "Levantamiento",
+            "Procesos, usuarios, restricciones y datos disponibles.",
+          ],
+          [
+            "02",
+            "Diseño y desarrollo",
+            "Arquitectura, APIs, modelo de datos e implementación.",
+          ],
+          [
+            "03",
+            "Operación y mejora",
+            "CI/CD, observabilidad, incidentes y evolución continua.",
+          ],
         ].map(([n, title, text]) => (
           <div key={n}>
             <span className="mono accent">{n}</span>

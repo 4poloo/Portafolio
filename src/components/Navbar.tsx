@@ -5,9 +5,10 @@ import { profile } from "../data/profile";
 const items = [
   ["Inicio", "presentacion"],
   ["Impacto", "impacto"],
-  ["Stack", "stack"],
   ["Proyectos", "proyectos"],
+  ["Stack", "stack"],
   ["Experiencia", "experiencia"],
+  ["Perfil", "sobre-mi"],
   ["Formación", "cursos"],
   ["Contacto", "contacto"],
 ];

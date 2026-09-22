@@ -9,14 +9,14 @@ export default function CoursesSection() {
     <section id="cursos" className="section">
       <SectionTitle
         eyebrow="06 / FORMACIÓN"
-        title="Una base sólida. Aprendizaje continuo."
+        title="Formación y certificaciones"
       />
       <Reveal className="education-grid">
         <article className="education-card">
           <FiBookOpen className="card-icon" aria-hidden="true" />
           <p className="eyebrow">UNIVERSIDAD TECNOLÓGICA METROPOLITANA</p>
           <h3>Ingeniería Civil en Computación</h3>
-          <p>Mención Informática · UTEM</p>
+          <p>Mención Informática · Universidad Tecnológica Metropolitana</p>
           <span className="state-badge">
             Egresado · Trabajo de título / defensa en proceso
           </span>
@@ -28,8 +28,8 @@ export default function CoursesSection() {
         </article>
         <article className="education-card">
           <FiAward className="card-icon" aria-hidden="true" />
-          <p className="eyebrow">LTS · LITE THINKING / 2025</p>
-          <h3>Curso certificado “Máster en DevSecOps”</h3>
+          <p className="eyebrow">LITE THINKING · 2025</p>
+          <h3>Máster en DevSecOps — Curso certificado</h3>
           <p>
             SonarQube, Jenkins, Docker, GitHub Actions, CI/CD y prácticas
             DevSecOps.
@@ -43,7 +43,10 @@ export default function CoursesSection() {
           </button>
         </article>
       </Reveal>
-      <p className="section-footnote">Español nativo · Inglés intermedio</p>
+      <div className="section-footnote">
+        <h3>Idiomas</h3>
+        <p>Español: nativo · Inglés: intermedio</p>
+      </div>
       {preview && (
         <ImagePreview
           src="/Cursos/3230.png"

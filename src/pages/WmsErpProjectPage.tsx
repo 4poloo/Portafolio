@@ -6,7 +6,8 @@ export default function WmsErpProjectPage() {
     <CaseStudy
       number="02"
       title="Softland ↔ INVAS"
-      intro="Ingeniería de integración para conectar ERP, WMS y operación industrial. Una arquitectura orientada a eventos sobre AWS, con reglas de negocio y trazabilidad documental."
+      descriptor="Integración ERP/WMS sobre AWS"
+      intro="Integración bidireccional entre Softland ERP e INVAS WMS sobre AWS, con transformación de documentos, reglas de negocio, validaciones y trazabilidad operacional."
       tags={[
         "AWS",
         "Event-driven",
@@ -18,8 +19,8 @@ export default function WmsErpProjectPage() {
     >
       <Reveal className="case-overview">
         <div>
-          <p className="eyebrow">EL DESAFÍO</p>
-          <h2>Dos sistemas que necesitaban hablar el mismo idioma.</h2>
+          <p className="eyebrow">PROBLEMA</p>
+          <h2>Integrar dos sistemas sin conectividad nativa</h2>
           <p>
             Softland e INVAS operaban con formatos y reglas diferentes. La
             integración traduce XML y JSON, valida documentos y automatiza
@@ -37,8 +38,8 @@ export default function WmsErpProjectPage() {
         </aside>
       </Reveal>
       <section className="case-section">
-        <p className="eyebrow">ARQUITECTURA CLOUD</p>
-        <h2>Desacoplar sistemas. Conectar procesos.</h2>
+        <p className="eyebrow">ARQUITECTURA</p>
+        <h2>Arquitectura event-driven sobre AWS</h2>
         <div className="case-two-col">
           <ArchitectureDiagram />
           <div>
@@ -71,12 +72,12 @@ export default function WmsErpProjectPage() {
         </div>
       </section>
       <section className="case-section">
-        <p className="eyebrow">FLUJOS DE NEGOCIO</p>
-        <h2>Información que viaja en ambos sentidos.</h2>
+        <p className="eyebrow">FLUJOS</p>
+        <h2>Flujos bidireccionales ERP ↔ WMS</h2>
         <div className="case-two-col flow-panels">
           <article>
             <span className="mono accent">SOFTLAND → INVAS</span>
-            <h3>De la planificación a la ejecución</h3>
+            <h3>Documentos desde ERP hacia WMS</h3>
             <p>
               Órdenes de compra, notas de venta y documentos operacionales
               requeridos por el WMS. Transformación y validación antes de
@@ -85,7 +86,7 @@ export default function WmsErpProjectPage() {
           </article>
           <article>
             <span className="mono accent">INVAS → SOFTLAND</span>
-            <h3>De la operación al registro</h3>
+            <h3>Retornos desde WMS hacia ERP</h3>
             <p>
               ASN y recepciones, guías de entrada y salida, declaración de
               producto terminado y consumo de materia prima. Procesamiento de
@@ -112,7 +113,7 @@ export default function WmsErpProjectPage() {
       </section>
       <section className="case-section">
         <p className="eyebrow">CONFIABILIDAD</p>
-        <h2>El flujo real incluye errores y reintentos.</h2>
+        <h2>Integridad, observabilidad y recuperación</h2>
         <div className="case-feature-grid">
           <article>
             <h3>Integridad transaccional</h3>
@@ -140,7 +141,7 @@ export default function WmsErpProjectPage() {
           </article>
           <article>
             <span className="state-badge">En validación / evolución</span>
-            <h3>Persistencia E2E · DynamoDB</h3>
+            <h3>Persistencia y correlación E2E · En validación</h3>
             <p>
               Diseño de correlación de confirmaciones con PK/SK, GSI, escrituras
               condicionales y control de concurrencia. Busca fortalecer
@@ -151,15 +152,15 @@ export default function WmsErpProjectPage() {
         </div>
       </section>
       <section className="case-section">
-        <p className="eyebrow">DECISIONES & TRADE-OFFS</p>
-        <h2>La arquitectura responde al contexto.</h2>
+        <p className="eyebrow">DECISIONES TÉCNICAS</p>
+        <h2>Decisiones arquitectónicas y trade-offs</h2>
         <div className="decision-list">
           <article>
             <h3>S3 como buffer documental</h3>
             <p>
-              Permite mantener el intercambio de archivos de la etapa actual. El
-              aislamiento automático de fallos con SQS y DLQ se considera una
-              evolución, evaluando volumen y complejidad operacional.
+              Permite mantener el intercambio de archivos de la etapa actual,
+              sin incorporar de inmediato una nueva capa de mensajería y su
+              complejidad operacional.
             </p>
           </article>
           <article>
@@ -171,7 +172,15 @@ export default function WmsErpProjectPage() {
             </p>
           </article>
           <article>
-            <h3>Medir antes de ampliar</h3>
+            <h3>SQS / DLQ como evolución evaluada</h3>
+            <p>
+              Se evalúa el aislamiento automático de mensajes fallidos y su
+              recuperación con SQS y DLQ, considerando el volumen de documentos
+              y la complejidad operacional. Es una alternativa de evolución.
+            </p>
+          </article>
+          <article>
+            <h3>Decisiones basadas en métricas</h3>
             <p>
               La observabilidad ayuda a decidir qué mejorar con evidencia. La
               integración incorpora monitoreo y diagnóstico sin publicar
@@ -183,8 +192,8 @@ export default function WmsErpProjectPage() {
       </section>
       <section className="case-section case-two-col">
         <div>
-          <p className="eyebrow">MI CONTRIBUCIÓN</p>
-          <h2>Del levantamiento al soporte productivo.</h2>
+          <p className="eyebrow">RESPONSABILIDAD</p>
+          <h2>Responsabilidad técnica E2E</h2>
           <p>
             Modelado de procesos AS-IS y TO-BE, diseño de arquitectura AWS,
             transformación XML/JSON, validaciones, instrumentación y
@@ -193,14 +202,11 @@ export default function WmsErpProjectPage() {
           </p>
         </div>
         <div className="thesis-note">
-          <span className="mono accent">
-            INGENIERÍA CIVIL EN COMPUTACIÓN / UTEM
-          </span>
-          <h3>Trabajo de título</h3>
+          <span className="mono accent">TRABAJO DE TÍTULO / UTEM</span>
+          <h2>Caso aplicado de Ingeniería Civil en Computación</h2>
           <p>
-            La integración y digitalización ERP/WMS son el eje del trabajo de
-            título, con análisis de procesos, arquitectura cloud e impacto
-            operacional.
+            Integración ERP/WMS, digitalización de procesos y arquitectura cloud
+            aplicada a una operación industrial.
           </p>
           <span className="state-badge">Egresado · Defensa en proceso</span>
         </div>

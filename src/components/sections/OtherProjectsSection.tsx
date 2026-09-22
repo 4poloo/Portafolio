@@ -1,6 +1,7 @@
 import { FiArrowUpRight, FiCode, FiDatabase, FiTerminal } from "react-icons/fi";
 import SpotlightCard from "../kokonutui/SpotlightCard";
 import Reveal from "../ui/Reveal";
+import SectionTitle from "../ui/SectionTitle";
 const projects = [
   {
     title: "INVAS Monitor",
@@ -42,11 +43,12 @@ const projects = [
 ];
 export default function OtherProjectsSection() {
   return (
-    <section id="otros-proyectos" className="other-section">
-      <div className="other-heading">
-        <h2>Más proyectos, la misma curiosidad.</h2>
-        <span className="mono">EXPLORAR / CONSTRUIR / APRENDER</span>
-      </div>
+    <section id="otros-proyectos" className="section other-section">
+      <SectionTitle
+        eyebrow="07 / PROYECTOS ADICIONALES"
+        title="Otros proyectos"
+        description="Automatización, datos y desarrollo web."
+      />
       <Reveal className="other-grid">
         {projects.map(({ title, icon: Icon, category, text, tags, href }) => (
           <SpotlightCard key={title}>

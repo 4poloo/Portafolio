@@ -10,7 +10,7 @@ import SectionTitle from "../ui/SectionTitle";
 import Reveal from "../ui/Reveal";
 const groups = [
   {
-    title: "Backend",
+    title: "Backend & APIs",
     icon: FiServer,
     level: "Experiencia productiva",
     skills: ["Python", "FastAPI", "APIs REST", "XML / JSON", "OpenAPI"],
@@ -35,7 +35,7 @@ const groups = [
     skills: ["MongoDB", "MySQL", "MariaDB", "SQL", "INVAS Monitor", "ETL"],
   },
   {
-    title: "DevOps & Calidad",
+    title: "DevOps & Operación",
     icon: FiTool,
     level: "Uso habitual",
     skills: [
@@ -67,8 +67,8 @@ export default function SkillsSection() {
     <section id="stack" className="section">
       <SectionTitle
         eyebrow="03 / STACK"
-        title="Las herramientas detrás de cada solución."
-        description="Una base técnica para construir, integrar y mantener sistemas productivos."
+        title="Stack y capacidades técnicas"
+        description="Tecnologías que utilizo para desarrollar, integrar, desplegar y operar aplicaciones productivas."
       />
       <Reveal className="skills-grid">
         {groups.map(({ title, icon: Icon, level, skills, note }) => (
@@ -88,14 +88,14 @@ export default function SkillsSection() {
         ))}
       </Reveal>
       <div className="knowledge-row">
-        <span className="mono">CONOCIMIENTOS / FORMACIÓN</span>
+        <span className="mono">CONOCIMIENTOS COMPLEMENTARIOS</span>
         <p>
           C · C++ · Node.js · Express · GCP · Firebase · Firestore · Jenkins ·
           Arquitectura hexagonal
         </p>
       </div>
       <div className="knowledge-row">
-        <span className="mono">GESTIÓN / COLABORACIÓN</span>
+        <span className="mono">GESTIÓN TÉCNICA</span>
         <p>
           GitHub · GitLab · Jira · Trello · Monday · Kanban · Scrum · BPMN ·
           Priorización técnica

@@ -30,7 +30,8 @@ export default function PlataformaSCProjectPage() {
     <CaseStudy
       number="01"
       title="Plataforma SC"
-      intro="De planillas y sistemas aislados a una plataforma operacional que conecta a las personas con la información que necesitan."
+      descriptor="Plataforma operacional Full Stack"
+      intro="Plataforma operacional para centralizar procesos de producción, planificación, bodega y gestión, integrando información de sistemas internos y servicios AWS."
       tags={[
         "Full Stack",
         "React",
@@ -44,10 +45,10 @@ export default function PlataformaSCProjectPage() {
         title: "Softland ↔ INVAS",
       }}
     >
-      <Reveal className="case-overview">
+      <Reveal className="case-section">
         <div>
-          <p className="eyebrow">EL CONTEXTO</p>
-          <h2>Una operación, múltiples fuentes de información.</h2>
+          <p className="eyebrow">CONTEXTO</p>
+          <h2>Procesos distribuidos entre planillas y sistemas separados</h2>
           <p>
             Producción, planificación y bodega dependían de planillas,
             digitación manual y consultas a sistemas diferentes. El desafío fue
@@ -55,18 +56,10 @@ export default function PlataformaSCProjectPage() {
             planta e integrar información de Softland e INVAS.
           </p>
         </div>
-        <aside className="case-result">
-          <span className="mono">RESULTADO OPERACIONAL</span>
-          <strong>2 horas → minutos</strong>
-          <p>
-            Digitalización y automatización de procesos que antes requerían
-            cerca de dos horas de trabajo manual diario.
-          </p>
-        </aside>
       </Reveal>
       <section className="case-section">
         <p className="eyebrow">ARQUITECTURA</p>
-        <h2>Una base modular, conectada a la operación.</h2>
+        <h2>Arquitectura Full Stack e integración con sistemas internos</h2>
         <div className="case-two-col">
           <ArchitectureDiagram platform />
           <div>
@@ -97,8 +90,8 @@ export default function PlataformaSCProjectPage() {
         </div>
       </section>
       <section className="case-section">
-        <p className="eyebrow">MÓDULOS</p>
-        <h2>Interfaces alrededor de procesos reales.</h2>
+        <p className="eyebrow">FUNCIONALIDAD</p>
+        <h2>Módulos implementados</h2>
         <div className="case-feature-grid">
           {modules.map(([title, text], i) => (
             <article key={title}>
@@ -110,8 +103,20 @@ export default function PlataformaSCProjectPage() {
         </div>
       </section>
       <section className="case-section">
-        <p className="eyebrow">EL PRODUCTO</p>
-        <h2>Un vistazo a la plataforma.</h2>
+        <p className="eyebrow">RESULTADOS</p>
+        <h2>Impacto operacional</h2>
+        <div className="case-result">
+          <span className="mono">TIEMPO OPERATIVO</span>
+          <strong>~2 horas → minutos</strong>
+          <p>
+            Digitalización y automatización de procesos que antes requerían
+            cerca de dos horas de trabajo manual diario.
+          </p>
+        </div>
+      </section>
+      <section className="case-section">
+        <p className="eyebrow">PRODUCTO</p>
+        <h2>Capturas de la plataforma</h2>
         <p>
           Capturas de referencia de la versión 2025. Ilustran el acceso y la
           navegación modular; el producto ha seguido evolucionando.
@@ -150,8 +155,8 @@ export default function PlataformaSCProjectPage() {
         </div>
       </section>
       <section className="case-section">
-        <p className="eyebrow">ENTREGA & CALIDAD</p>
-        <h2>Desarrollar también es mantener.</h2>
+        <p className="eyebrow">CI/CD Y OPERACIÓN</p>
+        <h2>Despliegue, operación y mantenibilidad</h2>
         <div className="pipeline" aria-label="Flujo de entrega">
           {[
             "GitHub",
@@ -168,24 +173,31 @@ export default function PlataformaSCProjectPage() {
         </div>
         <div className="case-two-col">
           <div>
-            <h3>Mi rol</h3>
+            <h3>Entrega continua</h3>
             <p>
-              Levantamiento funcional con usuarios, diseño de arquitectura,
-              desarrollo frontend y backend, integraciones y operación.
-              Priorización del roadmap junto a gerencia y soporte a incidentes
-              productivos.
+              Pipelines con GitHub Actions para frontend y backend, validaciones
+              y despliegues controlados entre QA y producción. Operación sobre
+              Ubuntu con Docker y Nginx.
             </p>
           </div>
           <div>
-            <h3>Evolución y mantenibilidad</h3>
+            <h3>Calidad y deuda técnica</h3>
             <p>
-              Pipelines para backend y frontend, despliegues controlados y
-              análisis con SonarQube para priorizar deuda técnica. Los conteos
+              Análisis con SonarQube para priorizar deuda técnica. Los conteos
               cíclicos y el ETL de configuración de etiquetas son líneas de
               evolución, no funcionalidades presentadas como terminadas.
             </p>
           </div>
         </div>
+      </section>
+      <section className="case-section">
+        <p className="eyebrow">RESPONSABILIDAD</p>
+        <h2>Mi rol en el proyecto</h2>
+        <p>
+          Levantamiento funcional con usuarios, diseño de arquitectura,
+          desarrollo frontend y backend, integraciones y operación. Priorización
+          del roadmap junto a gerencia y soporte a incidentes productivos.
+        </p>
       </section>
       {preview && (
         <ImagePreview {...preview} onClose={() => setPreview(null)} />

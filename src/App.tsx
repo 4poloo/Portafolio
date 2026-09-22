@@ -80,13 +80,13 @@ export default function App() {
             element={
               <>
                 <HeroSection />
-                <AboutSection />
                 <ImpactSection />
-                <SkillsSection />
                 <ProjectsSection />
-                <OtherProjectsSection />
+                <SkillsSection />
                 <ExperienceSection />
+                <AboutSection />
                 <CoursesSection />
+                <OtherProjectsSection />
                 <ContactSection />
               </>
             }
@@ -118,7 +118,7 @@ export default function App() {
           moladev<span className="accent">/</span>
         </Link>
         <span>© {new Date().getFullYear()} Maximiliano Olave</span>
-        <span className="mono">HECHO CON INTENCIÓN, DESDE CHILE.</span>
+        <span className="mono">FULL STACK · CLOUD · AWS · SANTIAGO, CHILE</span>
       </footer>
     </MotionConfig>
   );

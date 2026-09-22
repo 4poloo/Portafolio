@@ -21,17 +21,16 @@ export default function HeroSection() {
           Olave<span className="accent">.</span>
         </h1>
         <p className="hero-statement">
-          Del problema real
-          <br />
-          al software <span>en producción.</span>
+          Software para <span>operaciones reales.</span>
         </p>
         <p className="hero-description">
-          Diseño, desarrollo y opero plataformas e integraciones empresariales.
-          Conecto procesos, personas y sistemas con React, Python y AWS.
+          Desarrollo plataformas, APIs e integraciones empresariales con React,
+          Python y AWS, desde arquitectura y CI/CD hasta observabilidad y
+          soporte productivo.
         </p>
         <div className="hero-actions">
           <GradientButton href="#proyectos">
-            Explorar proyectos <FiArrowUpRight aria-hidden="true" />
+            Ver proyectos <FiArrowUpRight aria-hidden="true" />
           </GradientButton>
           <a
             className="button secondary-button"
@@ -54,21 +53,21 @@ export default function HeroSection() {
           />
           <div className="portrait-shade" />
           <div className="portrait-caption">
-            <span className="mono">INGENIERÍA CON CONTEXTO</span>
+            <span className="mono">FULL STACK & CLOUD</span>
             <span>Arquitectura. Desarrollo. Operación.</span>
           </div>
         </div>
         <div className="floating-label cloud-label">
           <FiCloud aria-hidden="true" />
           <span>
-            AWS<span className="small-muted">Cloud & integraciones</span>
+            AWS<span className="small-muted">Cloud & Integraciones</span>
           </span>
         </div>
         <div className="floating-label code-label">
           <FiCode aria-hidden="true" />
           <span>
-            E2E
-            <span className="small-muted">Full Stack Development</span>
+            FULL STACK · E2E
+            <span className="small-muted">React + FastAPI</span>
           </span>
         </div>
         <div className="portrait-coordinate mono">
@@ -77,9 +76,9 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="hero-bottom">
-        <span className="mono">SOFTWARE QUE CONECTA CON LA OPERACIÓN</span>
+        <span className="mono">PLATAFORMAS · APIs · INTEGRACIONES</span>
         <a href="#sobre-mi">
-          Conoce mi enfoque <FiArrowDown aria-hidden="true" />
+          Perfil profesional <FiArrowDown aria-hidden="true" />
         </a>
       </div>
     </section>

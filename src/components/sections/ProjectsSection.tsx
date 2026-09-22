@@ -6,15 +6,15 @@ export default function ProjectsSection() {
   return (
     <section id="proyectos" className="section">
       <SectionTitle
-        eyebrow="04 / PROYECTOS SELECCIONADOS"
-        title="De la arquitectura a la operación."
-        description="Dos proyectos que resumen mi forma de hacer ingeniería: entender el proceso, construir y acompañar su evolución."
+        eyebrow="02 / PROYECTOS"
+        title="Proyectos principales"
+        description="Casos productivos donde participé desde el levantamiento y diseño técnico hasta desarrollo, despliegue y operación."
       />
       <Reveal className="projects-grid">
         <ProjectCard
           number="01"
           title="Plataforma SC"
-          category="FULL STACK / PRODUCTO"
+          category="FULL STACK · OPERACIONES · PRODUCTO INTERNO"
           description="Un sistema operacional modular que conecta producción, planificación, bodega y gerencia en una misma plataforma."
           result="Procesos manuales de horas, reducidos a minutos."
           tags={["React", "TypeScript", "FastAPI", "MongoDB", "Docker"]}
@@ -39,9 +39,9 @@ export default function ProjectsSection() {
         <ProjectCard
           number="02"
           title="Softland ↔ INVAS"
-          category="AWS / INTEGRACIONES"
+          category="AWS · ERP/WMS · EVENT-DRIVEN"
           description="Integración bidireccional ERP/WMS para automatizar documentos, aplicar reglas de negocio y dar trazabilidad a la operación."
-          result="Sistemas conectados. Menos digitación. Más trazabilidad."
+          result="Automatización documental y trazabilidad entre ERP y WMS."
           tags={["AWS Lambda", "SNS", "S3", "CloudWatch", "Python"]}
           href="/proyectos/integracion-wms-erp"
         >

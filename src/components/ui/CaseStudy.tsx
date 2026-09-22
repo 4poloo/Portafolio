@@ -5,6 +5,7 @@ import Reveal from "./Reveal";
 interface CaseStudyProps {
   number: string;
   title: string;
+  descriptor: string;
   intro: string;
   tags: string[];
   children: ReactNode;
@@ -13,6 +14,7 @@ interface CaseStudyProps {
 export default function CaseStudy({
   number,
   title,
+  descriptor,
   intro,
   tags,
   children,
@@ -26,6 +28,7 @@ export default function CaseStudy({
       <header className="case-header">
         <p className="eyebrow">CASO DE ESTUDIO {number} / SURCHILE</p>
         <h1>{title}</h1>
+        <p className="case-descriptor">{descriptor}</p>
         <p>{intro}</p>
         <div className="tags">
           {tags.map((tag) => (
