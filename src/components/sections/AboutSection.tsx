@@ -11,8 +11,8 @@ export default function AboutSection() {
         />
         <div className="about-copy">
           <p>
-            Soy egresado de Ingeniería Civil en Computación de la UTEM. Trabajo
-            en la intersección entre{" "}
+            Soy Ingeniero Civil en Computación, mención Informática, titulado en
+            la UTEM. Trabajo en la intersección entre{" "}
             <strong>
               desarrollo de software, arquitectura cloud y operaciones reales.
             </strong>
