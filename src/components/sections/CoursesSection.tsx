@@ -15,8 +15,8 @@ export default function CoursesSection() {
         <article className="education-card">
           <FiBookOpen className="card-icon" aria-hidden="true" />
           <p className="eyebrow">UNIVERSIDAD TECNOLÓGICA METROPOLITANA</p>
-          <h3>Ingeniería Civil en Computación</h3>
-          <p>Mención Informática · Universidad Tecnológica Metropolitana</p>
+          <h3>Ingeniería Civil en Computación, mención Informática</h3>
+          <p>Universidad Tecnológica Metropolitana (UTEM)</p>
           <span className="state-badge">Titulado · 2026</span>
           <p className="small-muted">
             Trabajo de título aprobado con nota 7,0: integración y digitalización
