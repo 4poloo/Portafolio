@@ -1,0 +1,34 @@
+name: Update portfolio CV binary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/cv_final.pdf.b64"
+
+permissions:
+  contents: write
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Decode final CV
+        run: |
+          base64 --decode scripts/cv_final.pdf.b64 > public/Maximiliano_Olave_CV_2026_Actualizado.pdf
+          test -s public/Maximiliano_Olave_CV_2026_Actualizado.pdf
+          file public/Maximiliano_Olave_CV_2026_Actualizado.pdf | grep -q "PDF document"
+      - name: Commit updated CV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/Maximiliano_Olave_CV_2026_Actualizado.pdf
+          if git diff --cached --quiet; then
+            echo "CV already up to date"
+            exit 0
+          fi
+          git commit -m "Update final CV after degree completion"
+          git push
