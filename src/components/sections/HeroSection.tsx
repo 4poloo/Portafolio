@@ -24,9 +24,10 @@ export default function HeroSection() {
           Software para <span>operaciones reales.</span>
         </p>
         <p className="hero-description">
-          Ingeniero Civil en Computación. Desarrollo plataformas, APIs e
-          integraciones empresariales con React, Python y AWS, desde arquitectura
-          y CI/CD hasta observabilidad y soporte productivo.
+          Ingeniero Civil en Computación, mención Informática. Desarrollo
+          plataformas, APIs e integraciones empresariales con React, Python y
+          AWS, desde arquitectura y CI/CD hasta observabilidad y soporte
+          productivo.
         </p>
         <div className="hero-actions">
           <GradientButton href="#proyectos">
