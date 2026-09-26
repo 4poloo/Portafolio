@@ -41,7 +41,7 @@ export default function ProjectsSection() {
           title="Softland ↔ INVAS"
           category="AWS · ERP/WMS · EVENT-DRIVEN"
           description="Integración bidireccional ERP/WMS para automatizar documentos, aplicar reglas de negocio y dar trazabilidad a la operación."
-          result="Automatización documental y trazabilidad entre ERP y WMS."
+          result="De 2 h–1 día de desfase operacional a tiempo real, con consumos procesados en milisegundos."
           tags={["AWS Lambda", "SNS", "S3", "CloudWatch", "Python"]}
           href="/proyectos/integracion-wms-erp"
         >
