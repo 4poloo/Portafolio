@@ -1,0 +1,255 @@
+/* Legibility pass: preserve the visual hierarchy while making supporting text easier to read. */
+
+body {
+  font-size: 16px;
+}
+
+.mono,
+.eyebrow {
+  font-size: 11px;
+}
+
+.small-muted {
+  font-size: 13px !important;
+  line-height: 1.65;
+}
+
+.section-description {
+  font-size: 16px;
+}
+
+.section-footnote {
+  font-size: 12px;
+}
+
+.desktop-nav a,
+.button,
+.social-links a {
+  font-size: 13px;
+}
+
+.hero-location {
+  font-size: 11px;
+}
+
+.hero-description {
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+.portrait-caption > .mono {
+  font-size: 10px;
+}
+
+.portrait-caption > span:last-child {
+  font-size: 13px;
+}
+
+.floating-label .small-muted {
+  font-size: 10px !important;
+}
+
+.portrait-coordinate,
+.hero-bottom > .mono {
+  font-size: 10px;
+}
+
+.hero-bottom a {
+  font-size: 12px;
+}
+
+.about-copy {
+  font-size: 16px;
+}
+
+.process-row h3 {
+  font-size: 15px;
+}
+
+.process-row p {
+  font-size: 13px;
+}
+
+.metric > span {
+  font-size: 10px;
+}
+
+.spotlight-content > h3 {
+  font-size: 16px;
+}
+
+.spotlight-content > p:not(.metric) {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.skill-level,
+.tags > span {
+  font-size: 11px;
+}
+
+.knowledge-row .mono {
+  font-size: 10px;
+}
+
+.knowledge-row p {
+  font-size: 12px;
+}
+
+.project-copy .eyebrow {
+  font-size: 9px;
+}
+
+.project-copy > p:not(.eyebrow) {
+  font-size: 14px;
+}
+
+.project-copy > .project-result {
+  font-size: 12px !important;
+}
+
+.project-link {
+  font-size: 13px;
+}
+
+.diagram-caption,
+.diagram-node > span,
+.diagram-services > span,
+.diagram-note {
+  font-size: 9px;
+}
+
+.diagram-observability {
+  font-size: 10px;
+}
+
+.other-heading > .mono,
+.other-card-top .mono {
+  font-size: 9px;
+}
+
+.other-grid .small-muted {
+  font-size: 11px !important;
+}
+
+.experience-meta > .mono {
+  font-size: 10px;
+}
+
+.current-tag {
+  font-size: 11px;
+}
+
+.experience-copy > p {
+  font-size: 14px;
+}
+
+.experience-copy details {
+  font-size: 13px;
+}
+
+.education-card .eyebrow {
+  font-size: 9px;
+}
+
+.education-card > p:not(.eyebrow) {
+  font-size: 14px;
+}
+
+.state-badge {
+  font-size: 11px;
+}
+
+.text-button {
+  font-size: 13px;
+}
+
+.contact-section > p:not(.eyebrow) {
+  font-size: 16px;
+}
+
+.contact-email {
+  font-size: 13px;
+}
+
+.contact-bottom > span,
+.site-footer > span {
+  font-size: 11px;
+}
+
+.site-footer > .mono {
+  font-size: 9px;
+}
+
+.back-link {
+  font-size: 13px;
+}
+
+.case-study p:not(.eyebrow):not(.diagram-note) {
+  font-size: 15px;
+}
+
+.case-result > .mono,
+.thesis-note .mono {
+  font-size: 10px;
+}
+
+.gallery-grid button > span,
+.gallery-grid figcaption {
+  font-size: 12px;
+}
+
+.pipeline > span {
+  font-size: 13px;
+}
+
+.process-comparison .eyebrow {
+  font-size: 10px;
+}
+
+@media (max-width: 1000px) {
+  .diagram-node > span,
+  .diagram-services > span {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-description,
+  .about-copy,
+  .contact-section > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+
+  .hero-location {
+    font-size: 10px;
+  }
+
+  .hero-bottom > .mono {
+    font-size: 9px;
+  }
+
+  .hero-bottom > a {
+    font-size: 11px;
+  }
+
+  .diagram-node > span,
+  .diagram-services > span {
+    font-size: 9px;
+  }
+
+  .pipeline > span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-actions .button {
+    font-size: 12px;
+  }
+
+  .floating-label .small-muted {
+    font-size: 9px !important;
+  }
+}
