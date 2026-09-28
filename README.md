@@ -34,8 +34,8 @@ La adaptación reduce la inclinación a 2°, evita oscurecer tarjetas vecinas, l
 ## Contenido y recursos
 
 - Enlaces profesionales y CV centralizados en `src/data/profile.ts`.
-- CV nuevo: `public/Maximiliano_Olave_CV_2026_Actualizado.pdf`.
-- La ruta anterior `Maximiliano Olave CV.pdf` conserva una copia idéntica por compatibilidad.
+- CV actual: `public/Maximiliano_Olave_CV_2026_Final.pdf`.
+- Las rutas anteriores `Maximiliano_Olave_CV_2026_Actualizado.pdf` y `Maximiliano Olave CV.pdf` conservan copias idénticas por compatibilidad.
 - Estado académico: **egresado, trabajo de título / defensa en proceso**.
 - DynamoDB/PERSIST se describe como validación/evolución, sin afirmar cierre productivo E2E.
 - Las capturas seleccionadas corresponden a referencias de 2025; los esquemas de arquitectura son conceptuales.

@@ -10,6 +10,7 @@ const files = [
   "fonts/manrope-latin.woff2",
   "fonts/DM-Sans-OFL.txt",
   "fonts/Manrope-OFL.txt",
+  "Maximiliano_Olave_CV_2026_Final.pdf",
   "Maximiliano_Olave_CV_2026_Actualizado.pdf",
   "Maximiliano Olave CV.pdf",
   "images/portrait.webp",
