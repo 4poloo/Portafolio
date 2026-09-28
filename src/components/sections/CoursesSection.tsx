@@ -15,15 +15,13 @@ export default function CoursesSection() {
         <article className="education-card">
           <FiBookOpen className="card-icon" aria-hidden="true" />
           <p className="eyebrow">UNIVERSIDAD TECNOLÓGICA METROPOLITANA</p>
-          <h3>Ingeniería Civil en Computación</h3>
-          <p>Mención Informática · Universidad Tecnológica Metropolitana</p>
-          <span className="state-badge">
-            Egresado · Trabajo de título / defensa en proceso
-          </span>
+          <h3>Ingeniería Civil en Computación, mención Informática</h3>
+          <p>Universidad Tecnológica Metropolitana (UTEM)</p>
+          <span className="state-badge">Titulado · 2026</span>
           <p className="small-muted">
-            Trabajo de título: integración y digitalización de procesos Softland
-            ERP ↔ INVAS WMS, arquitectura cloud y evolución de plataforma
-            operacional.
+            Trabajo de título aprobado con nota 7,0: integración y digitalización
+            de procesos Softland ERP ↔ INVAS WMS, arquitectura cloud y evolución
+            de plataforma operacional.
           </p>
         </article>
         <article className="education-card">

@@ -7,7 +7,7 @@ export default function WmsErpProjectPage() {
       number="02"
       title="Softland ↔ INVAS"
       descriptor="Integración ERP/WMS sobre AWS"
-      intro="Integración bidireccional entre Softland ERP e INVAS WMS sobre AWS, con transformación de documentos, reglas de negocio, validaciones y trazabilidad operacional."
+      intro="Integración bidireccional entre Softland ERP e INVAS WMS sobre AWS, con transformación de documentos, reglas de negocio, validaciones y trazabilidad operacional en tiempo real."
       tags={[
         "AWS",
         "Event-driven",
@@ -20,20 +20,22 @@ export default function WmsErpProjectPage() {
       <Reveal className="case-overview">
         <div>
           <p className="eyebrow">PROBLEMA</p>
-          <h2>Integrar dos sistemas sin conectividad nativa</h2>
+          <h2>Eliminar el desfase entre ERP y operación de bodega</h2>
           <p>
-            Softland e INVAS operaban con formatos y reglas diferentes. La
-            integración traduce XML y JSON, valida documentos y automatiza
-            órdenes, recepciones, guías, declaraciones de producto terminado y
-            consumos de materia prima.
+            Softland e INVAS operaban con formatos y reglas diferentes, generando
+            un desfase operacional de aproximadamente dos horas y, en algunos
+            escenarios, de hasta un día. La integración traduce XML y JSON,
+            valida documentos y automatiza órdenes, recepciones, guías,
+            declaraciones de producto terminado y consumos de materia prima.
           </p>
         </div>
         <aside className="case-result">
-          <span className="mono">ESTADO DEL PROYECTO</span>
-          <strong>Integración productiva</strong>
+          <span className="mono">IMPACTO OPERACIONAL</span>
+          <strong>2 h–1 día → tiempo real</strong>
           <p>
-            Con evolución continua en confiabilidad, monitoreo y recuperación.
-            Persistencia E2E sobre DynamoDB en validación.
+            La operación pasó de trabajar con información diferida a sincronizar
+            ERP y WMS en tiempo real operacional. El procesamiento técnico de los
+            consumos se ejecuta en milisegundos.
           </p>
         </aside>
       </Reveal>
@@ -98,15 +100,15 @@ export default function WmsErpProjectPage() {
           <div>
             <span className="eyebrow">AS-IS</span>
             <p>
-              Documento → digitación manual → registro en otro sistema →
-              revisión manual
+              Operación ejecutada → información diferida entre sistemas → desfase
+              de ~2 horas y, en casos operacionales, hasta 1 día
             </p>
           </div>
           <div>
             <span className="eyebrow">TO-BE</span>
             <p>
-              Documento → transformación y validación → integración →
-              seguimiento de respuesta
+              Evento operacional → transformación y validación automática →
+              integración ERP/WMS en tiempo real → consumo procesado en ms
             </p>
           </div>
         </div>
@@ -208,7 +210,7 @@ export default function WmsErpProjectPage() {
             Integración ERP/WMS, digitalización de procesos y arquitectura cloud
             aplicada a una operación industrial.
           </p>
-          <span className="state-badge">Egresado · Defensa en proceso</span>
+          <span className="state-badge">Titulado · 2026 · Nota 7,0</span>
         </div>
       </section>
     </CaseStudy>

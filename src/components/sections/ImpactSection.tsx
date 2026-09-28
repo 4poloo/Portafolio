@@ -25,13 +25,14 @@ export default function ImpactSection() {
         <SpotlightCard>
           <FiClock className="card-icon" aria-hidden="true" />
           <p className="metric">
-            2 h <span className="metric-arrow">→</span> min
-            <span>TIEMPO OPERATIVO</span>
+            2 h/día <span className="metric-arrow">→</span> tiempo real
+            <span>INTEGRACIÓN ERP ↔ WMS</span>
           </p>
-          <h3>Automatización de procesos</h3>
+          <h3>Procesamiento en tiempo real</h3>
           <p>
-            Procesos de cerca de dos horas diarias, reducidos a minutos con
-            automatización.
+            La integración Softland ERP ↔ INVAS WMS reemplazó un flujo que
+            requería cerca de dos horas diarias de procesamiento por intercambio
+            automatizado en tiempo real.
           </p>
         </SpotlightCard>
         <SpotlightCard>
