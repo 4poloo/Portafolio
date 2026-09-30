@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { FiMaximize2 } from "react-icons/fi";
-import CaseStudy from "../components/ui/CaseStudy";
+import { FiArrowUpRight } from "react-icons/fi";
+import ShimmerText from "../components/kokonutui/ShimmerText";
 import ArchitectureDiagram from "../components/ui/ArchitectureDiagram";
+import CaseStudy from "../components/ui/CaseStudy";
 import ImagePreview from "../components/ui/ImagePreview";
+import PlatformGallery from "../components/ui/PlatformGallery";
 import Reveal from "../components/ui/Reveal";
+
 const modules = [
   [
     "Planificación",
@@ -22,10 +25,12 @@ const modules = [
     "Dashboards de producción y KPI, herramientas de consulta y ticketing TI.",
   ],
 ];
+
 export default function PlataformaSCProjectPage() {
   const [preview, setPreview] = useState<{ src: string; title: string } | null>(
     null,
   );
+
   return (
     <CaseStudy
       number="01"
@@ -44,6 +49,22 @@ export default function PlataformaSCProjectPage() {
         href: "/proyectos/integracion-wms-erp",
         title: "Softland ↔ INVAS",
       }}
+      headerAction={
+        <a
+          className="case-demo-link"
+          href="https://plataforma-di1mrfduz-maxolaves-projects.vercel.app/app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span className="case-demo-copy">
+            <span className="mono">
+              <span className="demo-live-dot" aria-hidden="true" /> DEMO EN LÍNEA
+            </span>
+            <ShimmerText text="Visitar Plataforma Ops" />
+          </span>
+          <FiArrowUpRight aria-hidden="true" />
+        </a>
+      }
     >
       <Reveal className="case-section">
         <div>
@@ -57,6 +78,7 @@ export default function PlataformaSCProjectPage() {
           </p>
         </div>
       </Reveal>
+
       <section className="case-section">
         <p className="eyebrow">ARQUITECTURA</p>
         <h2>Arquitectura Full Stack e integración con sistemas internos</h2>
@@ -89,6 +111,7 @@ export default function PlataformaSCProjectPage() {
           </div>
         </div>
       </section>
+
       <section className="case-section">
         <p className="eyebrow">FUNCIONALIDAD</p>
         <h2>Módulos implementados</h2>
@@ -102,6 +125,7 @@ export default function PlataformaSCProjectPage() {
           ))}
         </div>
       </section>
+
       <section className="case-section">
         <p className="eyebrow">RESULTADOS</p>
         <h2>Impacto operacional</h2>
@@ -114,46 +138,18 @@ export default function PlataformaSCProjectPage() {
           </p>
         </div>
       </section>
+
       <section className="case-section">
         <p className="eyebrow">PRODUCTO</p>
         <h2>Capturas de la plataforma</h2>
         <p>
-          Capturas de referencia de la versión 2025. Ilustran el acceso y la
-          navegación modular; el producto ha seguido evolucionando.
+          Recorre una selección actualizada de la plataforma en modo oscuro y
+          claro. Cada vista se puede ampliar para revisar la interfaz en
+          detalle.
         </p>
-        <div className="gallery-grid">
-          {[
-            {
-              src: "/images/plataforma-inicio.webp",
-              title: "Inicio y navegación modular · Referencia 2025",
-            },
-            {
-              src: "/images/plataforma-acceso.webp",
-              title: "Acceso a la plataforma · Referencia 2025",
-            },
-          ].map((item) => (
-            <figure key={item.src}>
-              <button
-                type="button"
-                onClick={() => setPreview(item)}
-                aria-label={`Ampliar ${item.title}`}
-              >
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  width="1200"
-                  height="640"
-                  loading="lazy"
-                />
-                <span>
-                  <FiMaximize2 aria-hidden="true" /> Ampliar
-                </span>
-              </button>
-              <figcaption>{item.title}</figcaption>
-            </figure>
-          ))}
-        </div>
+        <PlatformGallery onPreview={setPreview} />
       </section>
+
       <section className="case-section">
         <p className="eyebrow">CI/CD Y OPERACIÓN</p>
         <h2>Despliegue, operación y mantenibilidad</h2>
@@ -190,6 +186,7 @@ export default function PlataformaSCProjectPage() {
           </div>
         </div>
       </section>
+
       <section className="case-section">
         <p className="eyebrow">RESPONSABILIDAD</p>
         <h2>Mi rol en el proyecto</h2>
@@ -199,6 +196,7 @@ export default function PlataformaSCProjectPage() {
           del roadmap junto a gerencia y soporte a incidentes productivos.
         </p>
       </section>
+
       {preview && (
         <ImagePreview {...preview} onClose={() => setPreview(null)} />
       )}

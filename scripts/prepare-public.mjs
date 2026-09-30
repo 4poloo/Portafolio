@@ -2,6 +2,26 @@ import { cp, mkdir, rm } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 
 // Only reviewed assets enter the web build. Original reference files stay untouched.
+const platformViews = [
+  "inicio",
+  "planificacion-semanal",
+  "planificacion-disponible",
+  "detalle-despacho",
+  "dashboard-elaboracion",
+  "dashboard-produccion",
+  "centro-operaciones-ti",
+  "observabilidad-integraciones",
+  "recetas-produccion",
+  "productos",
+  "monitoreo-continuo",
+  "agenda-impresion",
+  "gestion-solicitudes",
+];
+const platformImages = ["claro", "oscuro"].flatMap((theme) =>
+  platformViews.map(
+    (view) => "PlataformaOps/" + theme + "/" + view + ".webp",
+  ),
+);
 const output = resolve("node_modules/.cache/portfolio-public");
 const files = [
   "logo.png",
@@ -14,17 +34,17 @@ const files = [
   "Maximiliano_Olave_CV_2026_Actualizado.pdf",
   "Maximiliano Olave CV.pdf",
   "images/portrait.webp",
-  "images/plataforma-inicio.webp",
-  "images/plataforma-acceso.webp",
+  ...platformImages,
   "Cursos/3230.png",
   "social-preview.png",
   "robots.txt",
   "sitemap.xml",
 ];
+
 await rm(output, { recursive: true, force: true });
 for (const file of files) {
   const destination = resolve(output, file);
   await mkdir(dirname(destination), { recursive: true });
   await cp(resolve("public", file), destination);
 }
-console.log(`Prepared ${files.length} public assets.`);
+console.log("Prepared " + files.length + " public assets.");

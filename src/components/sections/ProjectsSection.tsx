@@ -19,19 +19,20 @@ export default function ProjectsSection() {
           result="Procesos manuales de horas, reducidos a minutos."
           tags={["React", "TypeScript", "FastAPI", "MongoDB", "Docker"]}
           href="/proyectos/plataforma-sc"
+          demoHref="https://plataforma-di1mrfduz-maxolaves-projects.vercel.app/app"
         >
           <div className="browser-preview">
             <div className="browser-chrome">
               <i />
               <i />
               <i />
-              <span>Plataforma SC / Vista de referencia</span>
+              <span>Plataforma Ops / Demo 2026</span>
             </div>
             <img
-              src="/images/plataforma-inicio.webp"
-              alt="Vista de inicio de Plataforma SC con navegación modular y widgets, versión 2025"
-              width="1200"
-              height="640"
+              src="/PlataformaOps/oscuro/inicio.webp"
+              alt="Vista de inicio de Plataforma Ops en modo oscuro"
+              width="1855"
+              height="951"
               loading="lazy"
             />
           </div>

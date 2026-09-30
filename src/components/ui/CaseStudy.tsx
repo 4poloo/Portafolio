@@ -10,6 +10,7 @@ interface CaseStudyProps {
   tags: string[];
   children: ReactNode;
   next: { href: string; title: string };
+  headerAction?: ReactNode;
 }
 export default function CaseStudy({
   number,
@@ -19,6 +20,7 @@ export default function CaseStudy({
   tags,
   children,
   next,
+  headerAction,
 }: CaseStudyProps) {
   return (
     <article className="case-study">
@@ -35,6 +37,9 @@ export default function CaseStudy({
             <span key={tag}>{tag}</span>
           ))}
         </div>
+        {headerAction && (
+          <div className="case-header-action">{headerAction}</div>
+        )}
       </header>
       {children}
       <Reveal>

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { ReactNode } from "react";
 import SpotlightCard from "../kokonutui/SpotlightCard";
+import ShimmerText from "../kokonutui/ShimmerText";
+
 interface ProjectCardProps {
   number: string;
   title: string;
@@ -10,8 +12,10 @@ interface ProjectCardProps {
   result: string;
   tags: string[];
   href: string;
+  demoHref?: string;
   children: ReactNode;
 }
+
 export default function ProjectCard({
   number,
   title,
@@ -20,6 +24,7 @@ export default function ProjectCard({
   result,
   tags,
   href,
+  demoHref,
   children,
 }: ProjectCardProps) {
   return (
@@ -37,6 +42,18 @@ export default function ProjectCard({
             <span key={tag}>{tag}</span>
           ))}
         </div>
+        {demoHref && (
+          <a
+            className="project-demo-link"
+            href={demoHref}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="demo-live-dot" aria-hidden="true" />
+            <ShimmerText text="Visitar demo en vivo" />
+            <FiArrowUpRight aria-hidden="true" />
+          </a>
+        )}
         <Link className="project-link" to={href}>
           Explorar caso de estudio <FiArrowUpRight aria-hidden="true" />
           <span className="sr-only">: {title}</span>
