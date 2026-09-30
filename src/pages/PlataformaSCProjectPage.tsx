@@ -59,7 +59,7 @@ export default function PlataformaSCProjectPage() {
       headerAction={
         <a
           className="case-demo-link"
-          href="https://plataforma-di1mrfduz-maxolaves-projects.vercel.app/app"
+          href="https://plataforma-ops.vercel.app/app"
           target="_blank"
           rel="noreferrer"
         >
