@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowLeft, FiArrowUpRight } from "react-icons/fi";
 import Reveal from "./Reveal";
+
 interface CaseStudyProps {
   number: string;
   title: string;
@@ -11,7 +12,9 @@ interface CaseStudyProps {
   children: ReactNode;
   next: { href: string; title: string };
   headerAction?: ReactNode;
+  className?: string;
 }
+
 export default function CaseStudy({
   number,
   title,
@@ -21,9 +24,10 @@ export default function CaseStudy({
   children,
   next,
   headerAction,
+  className = "",
 }: CaseStudyProps) {
   return (
-    <article className="case-study">
+    <article className={`case-study ${className}`.trim()}>
       <Link to="/#proyectos" className="back-link">
         <FiArrowLeft aria-hidden="true" /> Volver a proyectos
       </Link>

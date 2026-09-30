@@ -37,6 +37,11 @@ const files = [
   ...platformImages,
   "Cursos/3230.png",
   "social-preview.png",
+  "ScIa/demostracion.mp4",
+  "ScIa/demostracion-poster.webp",
+  "ScIa/deteccion-con-tapa.webp",
+  "ScIa/deteccion-seguimiento.webp",
+  "ScIa/deteccion-sin-tapa.webp",
   "robots.txt",
   "sitemap.xml",
 ];

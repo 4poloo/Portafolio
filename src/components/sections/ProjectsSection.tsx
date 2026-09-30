@@ -1,23 +1,25 @@
-import SectionTitle from "../ui/SectionTitle";
-import ProjectCard from "../ui/ProjectCard";
+import ScIaArchitectureDiagram from "../sc-ia/ScIaArchitectureDiagram";
 import ArchitectureDiagram from "../ui/ArchitectureDiagram";
+import ProjectCard from "../ui/ProjectCard";
 import Reveal from "../ui/Reveal";
+import SectionTitle from "../ui/SectionTitle";
+
 export default function ProjectsSection() {
   return (
     <section id="proyectos" className="section">
       <SectionTitle
         eyebrow="02 / PROYECTOS"
         title="Proyectos principales"
-        description="Casos productivos donde participé desde el levantamiento y diseño técnico hasta desarrollo, despliegue y operación."
+        description="Tres casos técnicamente distintos: producto Full Stack, visión artificial aplicada e integración empresarial sobre AWS."
       />
       <Reveal className="projects-grid">
         <ProjectCard
           number="01"
           title="Plataforma SC"
-          category="FULL STACK · OPERACIONES · PRODUCTO INTERNO"
-          description="Un sistema operacional modular que conecta producción, planificación, bodega y gerencia en una misma plataforma."
-          result="Procesos manuales de horas, reducidos a minutos."
-          tags={["React", "TypeScript", "FastAPI", "MongoDB", "Docker"]}
+          category="FULL STACK · OPERACIONES · ARQUITECTURA"
+          description="Plataforma operacional modular que centraliza planificación, producción, bodega y procesos de apoyo, integrando sistemas empresariales y servicios especializados mediante APIs."
+          result="Digitalización de procesos y acceso unificado a información operacional."
+          tags={["React", "TypeScript", "FastAPI", "MongoDB", "Docker", "AWS"]}
           href="/proyectos/plataforma-sc"
           demoHref="https://plataforma-di1mrfduz-maxolaves-projects.vercel.app/app"
         >
@@ -37,8 +39,21 @@ export default function ProjectsSection() {
             />
           </div>
         </ProjectCard>
+
         <ProjectCard
           number="02"
+          title="SC-IA"
+          category="IA APLICADA · COMPUTER VISION · INDUSTRIA"
+          description="Sistema de visión artificial para inspeccionar productos mediante cámaras IP y modelos YOLO, registrar anomalías y conectar los resultados con Plataforma SC."
+          result="Inspección visual, alertas y análisis de resultados por línea y orden de trabajo."
+          tags={["Python", "YOLO", "OpenCV", "FastAPI", "MongoDB", "Computer Vision"]}
+          href="/proyectos/sc-ia"
+        >
+          <ScIaArchitectureDiagram variant="compact" showLegend={false} />
+        </ProjectCard>
+
+        <ProjectCard
+          number="03"
           title="Softland ↔ INVAS"
           category="AWS · ERP/WMS · EVENT-DRIVEN"
           description="Integración bidireccional ERP/WMS para automatizar documentos, aplicar reglas de negocio y dar trazabilidad a la operación."

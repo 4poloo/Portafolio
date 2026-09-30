@@ -2,76 +2,65 @@ import {
   FiCloud,
   FiCode,
   FiDatabase,
-  FiLayers,
+  FiEye,
   FiServer,
   FiTool,
 } from "react-icons/fi";
-import SectionTitle from "../ui/SectionTitle";
+import { Link } from "react-router-dom";
 import Reveal from "../ui/Reveal";
+import SectionTitle from "../ui/SectionTitle";
+
 const groups = [
   {
     title: "Backend & APIs",
     icon: FiServer,
-    level: "Experiencia productiva",
-    skills: ["Python", "FastAPI", "APIs REST", "XML / JSON", "OpenAPI"],
+    level: "Experiencia aplicada en proyectos",
+    skills: ["Python", "FastAPI", "REST / OpenAPI", "Pydantic", "XML / JSON"],
   },
   {
     title: "Frontend",
     icon: FiCode,
-    level: "Experiencia productiva",
-    skills: ["React", "TypeScript", "JavaScript", "Vite", "Tailwind CSS"],
+    level: "Experiencia aplicada en proyectos",
+    skills: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router"],
   },
   {
-    title: "AWS & Cloud",
+    title: "Cloud & Integraciones",
     icon: FiCloud,
     level: "Experiencia productiva",
-    skills: ["Lambda", "S3", "SNS", "API Gateway", "CloudWatch", "IAM", "EC2"],
+    skills: ["Lambda", "S3", "SNS", "API Gateway", "CloudWatch", "ERP / WMS", "SQL Server"],
     note: "DynamoDB: persistencia y correlación en validación.",
   },
   {
-    title: "Datos & Integraciones",
+    title: "Datos",
     icon: FiDatabase,
-    level: "Experiencia productiva",
-    skills: ["MongoDB", "MySQL", "MariaDB", "SQL", "INVAS Monitor", "ETL"],
+    level: "Experiencia aplicada en proyectos",
+    skills: ["MongoDB", "PyMongo / Motor", "MySQL", "MariaDB", "SQL", "ETL"],
   },
   {
-    title: "DevOps & Operación",
+    title: "Visión artificial e IA aplicada",
+    icon: FiEye,
+    level: "Aplicación en proyecto SC-IA",
+    skills: ["YOLO / Ultralytics", "OpenCV", "Análisis de imágenes", "RTSP", "Cámaras IP"],
+    href: "/proyectos/sc-ia",
+  },
+  {
+    title: "DevOps y Arquitectura",
     icon: FiTool,
-    level: "Uso habitual",
-    skills: [
-      "Docker",
-      "GitHub Actions",
-      "CI/CD",
-      "Ubuntu",
-      "Nginx",
-      "WireGuard",
-      "SonarQube",
-    ],
-  },
-  {
-    title: "Arquitectura",
-    icon: FiLayers,
     level: "Aplicación en proyectos",
-    skills: [
-      "Event-driven",
-      "Sistemas distribuidos",
-      "ERP / WMS",
-      "Cloud / on-premise",
-      "Idempotencia",
-      "Observabilidad",
-    ],
+    skills: ["Docker / Compose", "GitHub Actions", "Linux / Nginx", "APIs distribuidas", "Gateways", "Observabilidad"],
   },
-];
+] as const;
+
 export default function SkillsSection() {
   return (
     <section id="stack" className="section">
       <SectionTitle
         eyebrow="03 / STACK"
         title="Stack y capacidades técnicas"
-        description="Tecnologías que utilizo para desarrollar, integrar, desplegar y operar aplicaciones productivas."
+        description="Tecnologías agrupadas por la responsabilidad que cumplen en productos, integraciones y servicios especializados."
       />
       <Reveal className="skills-grid">
-        {groups.map(({ title, icon: Icon, level, skills, note }) => (
+        {groups.map(({ title, icon: Icon, level, skills, ...group }) => (
           <article className="skill-group" key={title}>
             <div className="skill-heading">
               <Icon aria-hidden="true" />
@@ -83,7 +72,14 @@ export default function SkillsSection() {
                 <span key={skill}>{skill}</span>
               ))}
             </div>
-            {note && <p className="small-muted skill-note">{note}</p>}
+            {"note" in group && group.note && (
+              <p className="small-muted skill-note">{group.note}</p>
+            )}
+            {"href" in group && group.href && (
+              <Link className="skill-case-link" to={group.href}>
+                Ver caso aplicado →
+              </Link>
+            )}
           </article>
         ))}
       </Reveal>

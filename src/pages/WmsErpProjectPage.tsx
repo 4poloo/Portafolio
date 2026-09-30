@@ -4,7 +4,7 @@ import Reveal from "../components/ui/Reveal";
 export default function WmsErpProjectPage() {
   return (
     <CaseStudy
-      number="02"
+      number="03"
       title="Softland ↔ INVAS"
       descriptor="Integración ERP/WMS sobre AWS"
       intro="Integración bidireccional entre Softland ERP e INVAS WMS sobre AWS, con transformación de documentos, reglas de negocio, validaciones y trazabilidad operacional en tiempo real."
