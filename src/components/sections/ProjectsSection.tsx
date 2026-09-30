@@ -21,7 +21,7 @@ export default function ProjectsSection() {
           result="Digitalización de procesos y acceso unificado a información operacional."
           tags={["React", "TypeScript", "FastAPI", "MongoDB", "Docker", "AWS"]}
           href="/proyectos/plataforma-sc"
-          demoHref="https://plataforma-di1mrfduz-maxolaves-projects.vercel.app/app"
+          demoHref="https://plataforma-ops.vercel.app/app"
         >
           <div className="browser-preview">
             <div className="browser-chrome">
