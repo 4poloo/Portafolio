@@ -37,8 +37,8 @@ librería de animación.
 ## Diseño e interacción
 
 Paleta carbón/oliva con acento ámbar, tipografía Manrope y DM Sans servida
-localmente en WOFF2. Las tarjetas adaptan Spotlight Cards y Gradient Button de
-Kokonut UI; su licencia MIT se conserva en
+localmente en WOFF2. Las tarjetas y la presentación adaptan Spotlight Cards, Gradient Button y
+Beams Background de Kokonut UI; su licencia MIT se conserva en
 [`docs/KOKONUT-LICENSE.txt`](docs/KOKONUT-LICENSE.txt).
 
 El caso SC-IA utiliza un único modelo tipado para tres representaciones:
