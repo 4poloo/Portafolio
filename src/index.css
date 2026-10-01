@@ -273,6 +273,30 @@ section:focus {
   background: #ffffff07;
   border: 1px solid #ffffff20;
 }
+.slide-text-button {
+  overflow: hidden;
+}
+.slide-text-viewport {
+  height: 1.35em;
+  display: grid;
+  overflow: hidden;
+  line-height: 1.35;
+}
+.slide-text-track {
+  display: grid;
+  transform: translateY(0);
+  transition: transform 220ms var(--ease-out);
+}
+.slide-text-line {
+  min-height: 1.35em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.slide-text-line > svg {
+  flex: 0 0 auto;
+}
 .icon-button {
   display: inline-flex;
   align-items: center;
@@ -1431,6 +1455,9 @@ section:focus {
     border-color: #e8b56b77;
     background-color: #e8b56b09;
   }
+  .slide-text-button:hover .slide-text-track {
+    transform: translateY(-50%);
+  }
   .spotlight-card:hover {
     border-color: #e8b56b44;
   }
@@ -1863,6 +1890,9 @@ section:focus {
   }
   .spotlight-card {
     transform: none !important;
+  }
+  .slide-text-button:hover .slide-text-track {
+    transform: none;
   }
   .button:active,
   .icon-button:active {

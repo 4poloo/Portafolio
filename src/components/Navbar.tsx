@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiArrowDown, FiMenu, FiX } from "react-icons/fi";
 import { profile } from "../data/profile";
+import SlideTextButton from "./kokonutui/SlideTextButton";
 const items = [
   ["Inicio", "presentacion"],
   ["Impacto", "impacto"],
@@ -58,13 +59,13 @@ export default function Navbar() {
           ))}
         </div>
         <div className="nav-actions">
-          <a
-            className="button nav-cv"
+          <SlideTextButton
+            className="nav-cv"
             href={profile.cv}
             download={profile.cvFilename}
-          >
-            CV <FiArrowDown aria-hidden="true" />
-          </a>
+            text="CV"
+            icon={<FiArrowDown aria-hidden="true" />}
+          />
           <button
             type="button"
             ref={toggle}

@@ -8,6 +8,7 @@ import {
 import SocialLinks from "../ui/SocialLinks";
 import BeamsBackground from "../kokonutui/BeamsBackground";
 import GradientButton from "../kokonutui/GradientButton";
+import SlideTextButton from "../kokonutui/SlideTextButton";
 import { profile } from "../../data/profile";
 export default function HeroSection() {
   return (
@@ -35,13 +36,13 @@ export default function HeroSection() {
           <GradientButton href="#proyectos">
             Ver proyectos <FiArrowUpRight aria-hidden="true" />
           </GradientButton>
-          <a
-            className="button secondary-button"
+          <SlideTextButton
+            className="secondary-button"
             href={profile.cv}
             download={profile.cvFilename}
-          >
-            Descargar CV <FiArrowDown aria-hidden="true" />
-          </a>
+            text="Descargar CV"
+            icon={<FiArrowDown aria-hidden="true" />}
+          />
         </div>
         <SocialLinks />
       </div>

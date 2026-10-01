@@ -2,6 +2,7 @@ import { FiArrowDown, FiArrowUpRight, FiMail } from "react-icons/fi";
 import { profile } from "../../data/profile";
 import SocialLinks from "../ui/SocialLinks";
 import GradientButton from "../kokonutui/GradientButton";
+import SlideTextButton from "../kokonutui/SlideTextButton";
 export default function ContactSection() {
   return (
     <section id="contacto" className="contact-section">
@@ -17,13 +18,13 @@ export default function ContactSection() {
           <FiMail aria-hidden="true" /> Contactar por email{" "}
           <FiArrowUpRight aria-hidden="true" />
         </GradientButton>
-        <a
+        <SlideTextButton
           href={profile.cv}
           download={profile.cvFilename}
-          className="button secondary-button"
-        >
-          Descargar CV <FiArrowDown aria-hidden="true" />
-        </a>
+          className="secondary-button"
+          text="Descargar CV"
+          icon={<FiArrowDown aria-hidden="true" />}
+        />
       </div>
       <a className="contact-email" href={`mailto:${profile.email}`}>
         {profile.email}
