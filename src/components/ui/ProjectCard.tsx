@@ -13,6 +13,9 @@ interface ProjectCardProps {
   tags: string[];
   href: string;
   demoHref?: string;
+  spotlightAccent: string;
+  spotlightDimmed: boolean;
+  onSpotlightChange: (active: boolean) => void;
   children: ReactNode;
 }
 
@@ -25,10 +28,19 @@ export default function ProjectCard({
   tags,
   href,
   demoHref,
+  spotlightAccent,
+  spotlightDimmed,
+  onSpotlightChange,
   children,
 }: ProjectCardProps) {
   return (
-    <SpotlightCard className="project-card">
+    <SpotlightCard
+      className="project-card"
+      variant="feature"
+      accentColor={spotlightAccent}
+      dimmed={spotlightDimmed}
+      onActiveChange={onSpotlightChange}
+    >
       <div className="project-visual">{children}</div>
       <div className="project-copy">
         <p className="eyebrow">

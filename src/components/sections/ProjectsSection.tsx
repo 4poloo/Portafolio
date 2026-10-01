@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ScIaArchitectureDiagram from "../sc-ia/ScIaArchitectureDiagram";
 import ArchitectureDiagram from "../ui/ArchitectureDiagram";
 import ProjectCard from "../ui/ProjectCard";
@@ -5,6 +6,8 @@ import Reveal from "../ui/Reveal";
 import SectionTitle from "../ui/SectionTitle";
 
 export default function ProjectsSection() {
+  const [activeProject, setActiveProject] = useState<string | null>(null);
+
   return (
     <section id="proyectos" className="section">
       <SectionTitle
@@ -22,6 +25,13 @@ export default function ProjectsSection() {
           tags={["React", "TypeScript", "FastAPI", "MongoDB", "Docker", "AWS"]}
           href="/proyectos/plataforma-sc"
           demoHref="https://plataforma-ops.vercel.app/app"
+          spotlightAccent="#e8b56b"
+          spotlightDimmed={
+            activeProject !== null && activeProject !== "plataforma-sc"
+          }
+          onSpotlightChange={(active) =>
+            setActiveProject(active ? "plataforma-sc" : null)
+          }
         >
           <div className="browser-preview">
             <div className="browser-chrome">
@@ -46,8 +56,20 @@ export default function ProjectsSection() {
           category="IA APLICADA · COMPUTER VISION · INDUSTRIA"
           description="Sistema de visión artificial para inspeccionar productos mediante cámaras IP y modelos YOLO, registrar anomalías y conectar los resultados con Plataforma SC."
           result="Inspección visual, alertas y análisis de resultados por línea y orden de trabajo."
-          tags={["Python", "YOLO", "OpenCV", "FastAPI", "MongoDB", "Computer Vision"]}
+          tags={[
+            "Python",
+            "YOLO",
+            "OpenCV",
+            "FastAPI",
+            "MongoDB",
+            "Computer Vision",
+          ]}
           href="/proyectos/sc-ia"
+          spotlightAccent="#9cc58a"
+          spotlightDimmed={activeProject !== null && activeProject !== "sc-ia"}
+          onSpotlightChange={(active) =>
+            setActiveProject(active ? "sc-ia" : null)
+          }
         >
           <ScIaArchitectureDiagram variant="compact" showLegend={false} />
         </ProjectCard>
@@ -60,6 +82,13 @@ export default function ProjectsSection() {
           result="De 2 h–1 día de desfase operacional a tiempo real, con consumos procesados en milisegundos."
           tags={["AWS Lambda", "SNS", "S3", "CloudWatch", "Python"]}
           href="/proyectos/integracion-wms-erp"
+          spotlightAccent="#7ca9c3"
+          spotlightDimmed={
+            activeProject !== null && activeProject !== "softland-invas"
+          }
+          onSpotlightChange={(active) =>
+            setActiveProject(active ? "softland-invas" : null)
+          }
         >
           <ArchitectureDiagram />
         </ProjectCard>

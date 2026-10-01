@@ -575,6 +575,33 @@ section:focus {
   opacity: 0;
   transition: opacity 200ms ease;
 }
+.spotlight-tint,
+.spotlight-shimmer,
+.spotlight-accent-line {
+  pointer-events: none;
+  position: absolute;
+}
+.spotlight-tint {
+  inset: 0;
+}
+.spotlight-shimmer {
+  inset: 0 auto 0 0;
+  width: 55%;
+  background: linear-gradient(90deg, transparent, #ffffff0d, transparent);
+  transform: translateX(-120%) skewX(-12deg);
+  transition: transform 700ms var(--ease-out);
+}
+.spotlight-accent-line {
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  transition: width 500ms var(--ease-out);
+}
+.spotlight-card[data-spotlight="feature"] {
+  transform-style: preserve-3d;
+}
 .spotlight-content {
   position: relative;
   height: 100%;
@@ -1410,6 +1437,15 @@ section:focus {
   .spotlight-card:hover .spotlight-glow {
     opacity: 1;
   }
+  .spotlight-card[data-spotlight="feature"] {
+    will-change: transform, opacity;
+  }
+  .spotlight-card[data-spotlight="feature"]:hover .spotlight-shimmer {
+    transform: translateX(280%) skewX(-12deg);
+  }
+  .spotlight-card[data-spotlight="feature"]:hover .spotlight-accent-line {
+    width: 100%;
+  }
   .text-button:hover,
   .project-link:hover {
     color: #fff0d0;
@@ -1419,6 +1455,14 @@ section:focus {
   }
   .gallery-grid button:hover {
     border-color: #e8b56b99;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .spotlight-card[data-spotlight="feature"]:active .spotlight-glow {
+    opacity: 0.55;
+  }
+  .spotlight-card[data-spotlight="feature"]:active .spotlight-accent-line {
+    width: 55%;
   }
 }
 @media (min-width: 1001px) {
