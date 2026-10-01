@@ -6,11 +6,13 @@ import {
   FiCloud,
 } from "react-icons/fi";
 import SocialLinks from "../ui/SocialLinks";
+import BeamsBackground from "../kokonutui/BeamsBackground";
 import GradientButton from "../kokonutui/GradientButton";
 import { profile } from "../../data/profile";
 export default function HeroSection() {
   return (
     <section id="presentacion" className="hero">
+      <BeamsBackground intensity="medium" />
       <div className="hero-copy">
         <p className="eyebrow hero-location">
           <span className="status-dot" /> FULL STACK & CLOUD ENGINEER
