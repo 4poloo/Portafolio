@@ -48,10 +48,10 @@ export default function HeroSection() {
       <div className="hero-visual">
         <div className="portrait-frame">
           <img
-            src="/images/portrait.webp"
+            src="/FotoPerfil.jpeg"
             alt="Maximiliano Olave"
-            width="675"
-            height="1200"
+            width="1122"
+            height="1402"
             fetchPriority="high"
           />
           <div className="portrait-shade" />
