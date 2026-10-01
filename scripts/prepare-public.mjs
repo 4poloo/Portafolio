@@ -33,6 +33,7 @@ const files = [
   "Maximiliano_Olave_CV_2026_Final.pdf",
   "Maximiliano_Olave_CV_2026_Actualizado.pdf",
   "Maximiliano Olave CV.pdf",
+  "FotoPerfil.jpeg",
   "images/portrait.webp",
   ...platformImages,
   "Cursos/3230.png",
