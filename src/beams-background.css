@@ -6,12 +6,13 @@
 .hero-beams {
   position: absolute;
   z-index: -2;
-  inset: 18px 0 0;
-  width: 100%;
+  top: 18px;
+  left: 50%;
+  width: var(--hero-viewport-width, 100vw);
   height: calc(100% - 18px);
+  transform: translateX(-50%);
   display: block;
   pointer-events: none;
-  border-radius: 22px;
   opacity: 1;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 82%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 82%, transparent);
@@ -21,9 +22,12 @@
   content: "";
   position: absolute;
   z-index: -1;
-  inset: 18px 0 0;
+  top: 18px;
+  bottom: 0;
+  left: 50%;
+  width: var(--hero-viewport-width, 100vw);
+  transform: translateX(-50%);
   pointer-events: none;
-  border-radius: 22px;
   background:
     radial-gradient(circle at 18% 28%, #e8b56b0a, transparent 35%),
     linear-gradient(90deg, #11121052 0%, #11121014 46%, #11121045 100%);
@@ -35,7 +39,6 @@
   .hero-beams,
   .hero::before {
     top: 8px;
-    border-radius: 16px;
   }
 
   .hero-beams {

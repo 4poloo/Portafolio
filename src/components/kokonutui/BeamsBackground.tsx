@@ -139,7 +139,8 @@ export default function BeamsBackground({
 
     const resize = () => {
       const bounds = host.getBoundingClientRect();
-      width = Math.max(1, bounds.width);
+      width = Math.max(1, document.documentElement.clientWidth);
+      host.style.setProperty("--hero-viewport-width", `${width}px`);
       height = Math.max(1, bounds.height);
       const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = Math.round(width * pixelRatio);
@@ -165,6 +166,7 @@ export default function BeamsBackground({
 
     resizeObserver.observe(host);
     intersectionObserver.observe(host);
+    window.addEventListener("resize", resize);
     document.addEventListener("visibilitychange", handleVisibility);
     reducedMotion.addEventListener("change", handleMotionPreference);
     resize();
@@ -173,8 +175,10 @@ export default function BeamsBackground({
       stop();
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
+      window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", handleVisibility);
       reducedMotion.removeEventListener("change", handleMotionPreference);
+      host.style.removeProperty("--hero-viewport-width");
     };
   }, [intensity]);
 
