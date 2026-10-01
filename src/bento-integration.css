@@ -58,11 +58,11 @@
   margin-bottom: 22px;
   color: #c5d9e4;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
 }
 
-.integration-flow > figcaption small { color: #737d76; font-size: 8px; letter-spacing: 0.03em; }
+.integration-flow > figcaption small { color: #8e9891; font-size: 10px; letter-spacing: 0.03em; }
 .integration-lanes { display: grid; gap: 18px; }
 
 .integration-lane {
@@ -81,8 +81,8 @@
   text-transform: uppercase;
 }
 
-.integration-lane-heading span { color: var(--integration-accent); font-size: 8px; }
-.integration-lane-heading strong { color: #aebcb6; font-size: 9px; letter-spacing: 0.08em; }
+.integration-lane-heading span { color: var(--integration-accent); font-size: 10px; }
+.integration-lane-heading strong { color: #bdc9c3; font-size: 11px; letter-spacing: 0.08em; }
 
 .integration-lane-track {
   display: flex;
@@ -111,8 +111,8 @@
 
 .integration-node > svg { width: 18px; height: 18px; flex: 0 0 auto; color: #94b7c9; }
 .integration-node > span { display: grid; min-width: 0; gap: 4px; }
-.integration-node strong { color: #dcdfd7; font-size: 11px; line-height: 1.3; }
-.integration-node small { color: #858b83; font-size: 8px; line-height: 1.4; }
+.integration-node strong { color: #e3e7df; font-size: 13px; line-height: 1.3; }
+.integration-node small { color: #9ba39b; font-size: 10px; line-height: 1.4; }
 
 .integration-node[data-active="true"],
 .integration-node:focus-visible {
@@ -165,8 +165,8 @@
 
 .integration-controls svg { flex: 0 0 auto; color: #8db5c9; }
 .integration-controls span { display: grid; gap: 3px; }
-.integration-controls strong { color: #bfc6be; font-size: 9px; line-height: 1.35; }
-.integration-controls small { color: #747c75; font-size: 8px; line-height: 1.4; }
+.integration-controls strong { color: #ccd3cb; font-size: 11px; line-height: 1.35; }
+.integration-controls small { color: #929b93; font-size: 9px; line-height: 1.4; }
 .integration-control-evolution { border-style: dashed !important; border-color: #e8b56b31 !important; }
 
 .integration-flow--compact { padding: 16px; }
@@ -176,10 +176,21 @@
 .integration-flow--compact .integration-lane-heading { margin-bottom: 8px; }
 .integration-flow--compact .integration-node { min-height: 57px; padding: 8px; gap: 7px; }
 .integration-flow--compact .integration-node > svg { width: 14px; height: 14px; }
-.integration-flow--compact .integration-node strong { font-size: 9px; }
-.integration-flow--compact .integration-node small { font-size: 7px; }
+.integration-flow--compact .integration-node strong { font-size: 12px; }
+.integration-flow--compact .integration-node small { font-size: 10px; }
 .integration-flow--compact .integration-connector { width: 15px; flex-basis: 15px; }
 .integration-flow--compact .integration-controls { grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.integration-flow--compact .integration-controls strong { font-size: 12px; }
+.integration-flow--compact .integration-controls small { font-size: 10px; }
+
+.integration-flow--full .integration-node { min-height: 88px; }
+.integration-flow--full .integration-node > svg { width: 21px; height: 21px; }
+.integration-flow--full .integration-node strong { font-size: 15px; }
+.integration-flow--full .integration-node small { font-size: 12px; }
+.integration-flow--full .integration-lane-heading span { font-size: 11px; }
+.integration-flow--full .integration-lane-heading strong { font-size: 13px; }
+.integration-flow--full .integration-controls strong { font-size: 13px; }
+.integration-flow--full .integration-controls small { font-size: 11px; }
 
 .project-authorship {
   display: grid;
@@ -249,10 +260,12 @@
   .integration-node,
   .integration-flow--compact .integration-node,
   .integration-flow--full .integration-node { width: 100%; min-height: 58px; flex-direction: row; align-items: center; }
+  .integration-flow--full .integration-node strong { font-size: 14px; }
+  .integration-flow--full .integration-node small { font-size: 11px; }
   .integration-node strong,
-  .integration-flow--compact .integration-node strong { font-size: 11px; }
+  .integration-flow--compact .integration-node strong { font-size: 13px; }
   .integration-node small,
-  .integration-flow--compact .integration-node small { font-size: 8px; }
+  .integration-flow--compact .integration-node small { font-size: 10px; }
   .integration-connector,
   .integration-flow--compact .integration-connector,
   .integration-flow--full .integration-connector { width: 1px; height: 18px; flex-basis: 18px; align-self: center; }
