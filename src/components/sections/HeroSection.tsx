@@ -50,8 +50,8 @@ export default function HeroSection() {
           <img
             src="/FotoPerfil.jpeg"
             alt="Maximiliano Olave"
-            width="1122"
-            height="1402"
+            width="500"
+            height="625"
             fetchPriority="high"
           />
           <div className="portrait-shade" />
