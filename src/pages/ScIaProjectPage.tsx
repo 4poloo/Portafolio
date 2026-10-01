@@ -5,6 +5,7 @@ import ScIaArchitectureDiagram from "../components/sc-ia/ScIaArchitectureDiagram
 import ScIaFlowStory from "../components/sc-ia/ScIaFlowStory";
 import ScIaMediaGallery from "../components/sc-ia/ScIaMediaGallery";
 import CaseStudy from "../components/ui/CaseStudy";
+import ProjectAuthorship from "../components/ui/ProjectAuthorship";
 import Reveal from "../components/ui/Reveal";
 
 const capabilities = [
@@ -39,12 +40,12 @@ export default function ScIaProjectPage() {
   return (
     <CaseStudy
       className="scia-case-study"
-      number="02"
+      number="03"
       title="SC-IA"
       descriptor="Visión artificial para control de calidad"
       intro="SC-IA es un servicio especializado de visión artificial para inspección industrial. Captura imágenes desde cámaras IP, ejecuta modelos YOLO y clasifica condiciones observables del producto. Registra resultados y anomalías para consultarlos desde Plataforma SC y relacionarlos con la operación de producción."
       tags={["Python", "YOLO", "OpenCV", "FastAPI", "MongoDB", "Computer Vision"]}
-      next={{ href: "/proyectos/integracion-wms-erp", title: "Softland ↔ INVAS" }}
+      next={{ href: "/proyectos/integracion-wms-erp", title: "Integración ERP ↔ WMS en AWS" }}
     >
       <Reveal className="case-overview scia-problem-overview">
         <div>
@@ -221,6 +222,13 @@ export default function ScIaProjectPage() {
             </p>
           </article>
         </div>
+      </section>
+
+      <section className="case-section">
+        <ProjectAuthorship
+          role="Arquitectura de visión artificial, servicios backend e integración con Plataforma SC"
+          badges={["DESARROLLO PRINCIPAL INDIVIDUAL", "COMPUTER VISION", "AI-ASSISTED ENGINEERING"]}
+        />
       </section>
 
       <section className="case-section case-two-col">

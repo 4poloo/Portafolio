@@ -16,6 +16,8 @@ interface ProjectCardProps {
   spotlightAccent: string;
   spotlightDimmed: boolean;
   onSpotlightChange: (active: boolean) => void;
+  layout?: "standard" | "wide";
+  related?: boolean;
   children: ReactNode;
 }
 
@@ -31,11 +33,13 @@ export default function ProjectCard({
   spotlightAccent,
   spotlightDimmed,
   onSpotlightChange,
+  layout = "standard",
+  related = false,
   children,
 }: ProjectCardProps) {
   return (
     <SpotlightCard
-      className="project-card"
+      className={`project-card project-card--${layout}${related ? " project-card--related" : ""}`}
       variant="feature"
       accentColor={spotlightAccent}
       dimmed={spotlightDimmed}

@@ -7,6 +7,7 @@ import ArchitectureDiagram from "../components/ui/ArchitectureDiagram";
 import CaseStudy from "../components/ui/CaseStudy";
 import ImagePreview from "../components/ui/ImagePreview";
 import PlatformGallery from "../components/ui/PlatformGallery";
+import ProjectAuthorship from "../components/ui/ProjectAuthorship";
 import Reveal from "../components/ui/Reveal";
 
 const modules = [
@@ -50,7 +51,7 @@ export default function PlataformaSCProjectPage() {
 
   return (
     <CaseStudy
-      number="01"
+      number="02"
       title="Plataforma SC"
       descriptor="Gestión operacional e integración industrial"
       intro="Diseño y desarrollo de una plataforma operacional Full Stack para centralizar procesos de producción, planificación, bodega y gestión interna. La solución incorpora módulos especializados, integración con sistemas empresariales y una arquitectura que permite conectar servicios independientes, incluido un subsistema de visión artificial para inspección industrial."
@@ -208,14 +209,10 @@ export default function PlataformaSCProjectPage() {
       </section>
 
       <section className="case-section">
-        <p className="eyebrow">RESPONSABILIDAD</p>
-        <h2>Mi rol en el proyecto</h2>
-        <p>
-          Participación en el levantamiento con usuarios, diseño de arquitectura,
-          desarrollo de interfaces y servicios backend, integraciones y continuidad
-          operacional. Coordinación de prioridades técnicas y evolución modular en
-          función de necesidades reales de planta.
-        </p>
+        <ProjectAuthorship
+          role="Levantamiento, arquitectura Full Stack, implementación e integración operacional"
+          badges={["DESARROLLO PRINCIPAL INDIVIDUAL", "FULL STACK E2E", "AI-ASSISTED ENGINEERING"]}
+        />
       </section>
 
       {preview && <ImagePreview {...preview} onClose={() => setPreview(null)} />}
